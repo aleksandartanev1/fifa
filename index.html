@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>FIFA | The Home of Football</title>
+  <meta charset="UTF-8">
+  <title>FIFA | The Home of Football</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <div id="lanbar">
-    <ul>
+  <ul>
     <li>FIFA REWARDS</li>
     <li>FIFA+</li>
     <li>FIFA STORE</li>
@@ -28,9 +29,65 @@
   </ul>
 </div>
 
-<div id="content">
-  <p >adsad</p>
-</div>
+<section id="hero-banner">
+  <div class="hero-main">
+
+    <div class="hero-text-card">
+      <span class="category-tag">FIFA World Cup 2026™</span>
+      <h1 class="hero-title">
+        FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured
+      </h1>
+      <p class="hero-description">
+        Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.
+      </p>
+      <a href="#" class="btn-read-more">Read more</a>
+    </div>
+
+    <div class="hero-image-card">
+      <img src="awards.avif" alt="FIFA World Cup Award Winners" onerror="this.style.display='none'">
+    </div>
+
+    <div class="hero-sidebar">
+      <div class="next-up-header">
+        <span class="next-up-label">Next Up</span>
+        <h3 class="next-up-title">Player Awards (FIFA Plus Archive Project Collections)</h3>
+      </div>
+      <div class="next-up-image">
+        <img src="next-up-thumbnail.jpg" alt="Next Up Preview" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-carousel-nav">
+    <button class="nav-arrow" id="prevArrow" aria-label="Previous story">&lt;</button>
+
+    <div class="tab-items" id="tabItems">
+      <button class="tab-item" data-desc="">
+        <span class="tab-category">FIFA World Cup 2026™</span>
+        <p class="tab-headline">Messi, Dembele and more: Watch all long-range goals at World Cup 2026</p>
+      </button>
+
+      <button class="tab-item" data-desc="">
+        <span class="tab-category">FIFA World Cup 2026™</span>
+        <p class="tab-headline">Spain soar at game-changing World Cup</p>
+      </button>
+
+      <button class="tab-item" data-desc="">
+        <span class="tab-category">Inside FIFA</span>
+        <p class="tab-headline">FIFA intends to expand football development funding to over USD 10 billion subject to approval by FIFA Council</p>
+      </button>
+
+      <button class="tab-item active" data-desc="Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.">
+        <span class="tab-category">FIFA World Cup 2026™</span>
+        <p class="tab-headline">FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured</p>
+      </button>
+    </div>
+
+    <button class="nav-arrow" id="nextArrow" aria-label="Next story">&gt;</button>
+  </div>
+</section>
+
 
 <div id="footer">
   <div id="socials-bar">
@@ -83,4 +140,5 @@
 
 </div>
 </body>
+<script src="script.js"></script>
 </html>
