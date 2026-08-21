@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIFA | The Home of Football</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
+
 <div id="lanbar">
   <ul>
     <li>FIFA REWARDS</li>
@@ -16,105 +18,568 @@
     <li>Language</li>
   </ul>
 </div>
+
 <div id="navbar">
-  <ul>
-    <li class="logo"></li>
-    <li>TOURNAMENTS & EVENTS</li>
-    <li>MATCHES & STATS</li>
-    <li>NEWS</li>
-    <li>RANKINGS</li>
-    <li>TICKETS & HOSPITALITY</li>
-    <li>PLAY</li>
-    <li>INSIDE FIFA</li>
+  <div class="logo">FIFA</div>
+
+  <button id="menu-btn">☰</button>
+
+  <ul id="main-menu">
+    <li><button class="nav-link active-nav" data-section="home">TOURNAMENTS & EVENTS</button></li>
+    <li><button class="nav-link" data-section="matches">MATCHES & STATS</button></li>
+    <li><button class="nav-link" data-section="news">NEWS</button></li>
+    <li><button class="nav-link" data-section="rankings">RANKINGS</button></li>
+    <li><button class="nav-link" data-section="tickets">TICKETS & HOSPITALITY</button></li>
+    <li><button class="nav-link" data-section="play">PLAY</button></li>
+    <li><button class="nav-link" data-section="inside">INSIDE FIFA</button></li>
   </ul>
 </div>
 
-<section id="hero-banner">
-  <div class="hero-main">
+<div id="home" class="page-section active-section">
 
-    <div class="hero-text-card">
-      <span class="category-tag">FIFA World Cup 2026™</span>
-      <h1 class="hero-title">
-        FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured
-      </h1>
-      <p class="hero-description">
-        Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.
-      </p>
-      <a href="#" class="btn-read-more">Read more</a>
-    </div>
+  <section id="hero-banner">
 
-    <div class="hero-image-card">
-      <img src="awards.avif" alt="FIFA World Cup Award Winners" onerror="this.style.display='none'">
-    </div>
+    <div class="hero-main">
 
-    <div class="hero-sidebar">
-      <div class="next-up-header">
+      <div class="hero-text-card">
+        <span class="category-tag">FIFA World Cup 2026™</span>
+
+        <h1 class="hero-title">
+          FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured
+        </h1>
+
+        <p class="hero-description">
+          Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.
+        </p>
+
+        <a href="#" class="btn-read-more">Read more</a>
+      </div>
+
+      <div class="hero-image-card">
+        <img id="hero-image" src="awards.avif" alt="FIFA World Cup">
+      </div>
+
+      <div class="hero-sidebar">
         <span class="next-up-label">Next Up</span>
-        <h3 class="next-up-title">Player Awards (FIFA Plus Archive Project Collections)</h3>
+
+        <h3 class="next-up-title">
+          Player Awards
+        </h3>
+
+        <p>
+          Discover more stories from FIFA competitions, players and tournaments.
+        </p>
+
+        <a href="#">View story →</a>
       </div>
-      <div class="next-up-image">
-        <img src="next-up-thumbnail.jpg" alt="Next Up Preview" onerror="this.style.display='none'">
+
+    </div>
+
+    <div class="hero-carousel-nav">
+
+      <button class="nav-arrow" id="prevArrow">&lt;</button>
+
+      <div class="tab-items">
+
+        <button
+          class="tab-item"
+          data-category="FIFA World Cup 2026™"
+          data-title="Messi, Dembele and more: Watch all long-range goals at World Cup 2026"
+          data-desc="Watch some of the best long-range goals scored during an unforgettable FIFA World Cup."
+          data-image="awards.avif">
+
+          <span class="tab-category">FIFA World Cup 2026™</span>
+          <p class="tab-headline">
+            Messi, Dembele and more: Watch all long-range goals at World Cup 2026
+          </p>
+        </button>
+
+        <button
+          class="tab-item"
+          data-category="FIFA World Cup 2026™"
+          data-title="Spain soar at game-changing World Cup"
+          data-desc="Spain produced memorable performances during another exciting international tournament."
+          data-image="awards.avif">
+
+          <span class="tab-category">FIFA World Cup 2026™</span>
+          <p class="tab-headline">
+            Spain soar at game-changing World Cup
+          </p>
+        </button>
+
+        <button
+          class="tab-item"
+          data-category="Inside FIFA"
+          data-title="FIFA expands football development around the world"
+          data-desc="New projects aim to support football infrastructure, development and opportunities around the world."
+          data-image="awards.avif">
+
+          <span class="tab-category">Inside FIFA</span>
+          <p class="tab-headline">
+            FIFA expands football development around the world
+          </p>
+        </button>
+
+        <button
+          class="tab-item active"
+          data-category="FIFA World Cup 2026™"
+          data-title="FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured"
+          data-desc="Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax."
+          data-image="awards.avif">
+
+          <span class="tab-category">FIFA World Cup 2026™</span>
+          <p class="tab-headline">
+            FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured
+          </p>
+        </button>
+
+      </div>
+
+      <button class="nav-arrow" id="nextArrow">&gt;</button>
+
+    </div>
+
+  </section>
+
+  <section id="categories">
+
+    <div class="section-heading">
+      <div>
+        <span>DISCOVER</span>
+        <h2>Explore FIFA</h2>
       </div>
     </div>
 
-  </div>
+    <div class="category-grid">
 
-  <div class="hero-carousel-nav">
-    <button class="nav-arrow" id="prevArrow" aria-label="Previous story">&lt;</button>
+      <div class="category-card">
+        <div class="category-number">01</div>
+        <h3>Tournaments</h3>
+        <p>
+          Follow FIFA tournaments, fixtures, results and the latest competition news.
+        </p>
+      </div>
 
-    <div class="tab-items" id="tabItems">
-      <button class="tab-item" data-desc="">
-        <span class="tab-category">FIFA World Cup 2026™</span>
-        <p class="tab-headline">Messi, Dembele and more: Watch all long-range goals at World Cup 2026</p>
-      </button>
+      <div class="category-card">
+        <div class="category-number">02</div>
+        <h3>Matches</h3>
+        <p>
+          Find recent match results, upcoming fixtures and football statistics.
+        </p>
+      </div>
 
-      <button class="tab-item" data-desc="">
-        <span class="tab-category">FIFA World Cup 2026™</span>
-        <p class="tab-headline">Spain soar at game-changing World Cup</p>
-      </button>
+      <div class="category-card">
+        <div class="category-number">03</div>
+        <h3>Rankings</h3>
+        <p>
+          Check the latest FIFA rankings for national teams around the world.
+        </p>
+      </div>
 
-      <button class="tab-item" data-desc="">
-        <span class="tab-category">Inside FIFA</span>
-        <p class="tab-headline">FIFA intends to expand football development funding to over USD 10 billion subject to approval by FIFA Council</p>
-      </button>
+      <div class="category-card">
+        <div class="category-number">04</div>
+        <h3>Inside FIFA</h3>
+        <p>
+          Learn more about FIFA projects, football development and the organisation.
+        </p>
+      </div>
 
-      <button class="tab-item active" data-desc="Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.">
-        <span class="tab-category">FIFA World Cup 2026™</span>
-        <p class="tab-headline">FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured</p>
-      </button>
     </div>
 
-    <button class="nav-arrow" id="nextArrow" aria-label="Next story">&gt;</button>
-  </div>
-</section>
+  </section>
 
+</div>
 
-<div id="footer">
+<div id="matches" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>FOOTBALL</span>
+      <h1>Matches & Stats</h1>
+      <p>
+        Follow recent results, upcoming fixtures and match statistics.
+      </p>
+    </div>
+
+    <div class="match-date">
+      Latest Results
+    </div>
+
+    <div class="matches-container">
+
+      <div class="match-card">
+        <div class="competition">FIFA World Cup 2026™</div>
+
+        <div class="teams">
+          <div class="team">Spain</div>
+
+          <div class="score">
+            <strong>2</strong>
+            <span>FT</span>
+            <strong>1</strong>
+          </div>
+
+          <div class="team right-team">France</div>
+        </div>
+      </div>
+
+      <div class="match-card">
+        <div class="competition">International Friendly</div>
+
+        <div class="teams">
+          <div class="team">Germany</div>
+
+          <div class="score">
+            <strong>3</strong>
+            <span>FT</span>
+            <strong>0</strong>
+          </div>
+
+          <div class="team right-team">Netherlands</div>
+        </div>
+      </div>
+
+      <div class="match-card">
+        <div class="competition">FIFA World Cup 2026™</div>
+
+        <div class="teams">
+          <div class="team">Argentina</div>
+
+          <div class="score">
+            <strong>1</strong>
+            <span>FT</span>
+            <strong>1</strong>
+          </div>
+
+          <div class="team right-team">Portugal</div>
+        </div>
+      </div>
+
+      <div class="match-card">
+        <div class="competition">FIFA Nations Series</div>
+
+        <div class="teams">
+          <div class="team">Brazil</div>
+
+          <div class="score">
+            <strong>4</strong>
+            <span>FT</span>
+            <strong>2</strong>
+          </div>
+
+          <div class="team right-team">Mexico</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div id="news" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>FIFA</span>
+      <h1>Latest News</h1>
+      <p>
+        The latest stories from tournaments, teams and football around the world.
+      </p>
+    </div>
+
+    <div class="page-news-grid">
+
+      <article class="big-news-card">
+        <img src="awards.avif" alt="FIFA World Cup">
+
+        <div class="big-news-text">
+          <span>FIFA WORLD CUP 2026™</span>
+
+          <h2>
+            World Cup stars honoured after spectacular tournament
+          </h2>
+
+          <p>
+            Players from around the world celebrated after another unforgettable FIFA World Cup.
+          </p>
+
+          <a href="#">Read story →</a>
+        </div>
+      </article>
+
+      <article class="small-news-card">
+        <span>INSIDE FIFA</span>
+
+        <h3>
+          FIFA announces new football development projects
+        </h3>
+
+        <p>
+          New programmes will support football associations around the world.
+        </p>
+
+        <a href="#">Read more →</a>
+      </article>
+
+      <article class="small-news-card">
+        <span>WORLD CUP</span>
+
+        <h3>
+          The best goals from the latest World Cup
+        </h3>
+
+        <p>
+          Take another look at some of the tournament's most memorable goals.
+        </p>
+
+        <a href="#">Watch now →</a>
+      </article>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div id="rankings" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>MEN'S FOOTBALL</span>
+      <h1>FIFA World Ranking</h1>
+      <p>
+        Latest national team ranking.
+      </p>
+    </div>
+
+    <div class="ranking-table">
+
+      <div class="ranking-header">
+        <span>RK</span>
+        <span>TEAM</span>
+        <span>POINTS</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>1</strong>
+        <span>Argentina</span>
+        <span>1885</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>2</strong>
+        <span>Spain</span>
+        <span>1867</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>3</strong>
+        <span>France</span>
+        <span>1859</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>4</strong>
+        <span>England</span>
+        <span>1813</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>5</strong>
+        <span>Brazil</span>
+        <span>1775</span>
+      </div>
+
+      <div class="ranking-row">
+        <strong>6</strong>
+        <span>Portugal</span>
+        <span>1756</span>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div id="tickets" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>EXPERIENCE FIFA</span>
+      <h1>Tickets & Hospitality</h1>
+      <p>
+        Experience FIFA competitions live from the stadium.
+      </p>
+    </div>
+
+    <div class="simple-card-grid">
+
+      <div class="info-card">
+        <div class="card-icon">01</div>
+        <h2>Match Tickets</h2>
+        <p>
+          Find ticket information for upcoming FIFA tournaments.
+        </p>
+        <button>View tickets</button>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">02</div>
+        <h2>Hospitality</h2>
+        <p>
+          Discover premium hospitality experiences at FIFA events.
+        </p>
+        <button>Explore hospitality</button>
+      </div>
+
+      <div class="info-card">
+        <div class="card-icon">03</div>
+        <h2>Upcoming Events</h2>
+        <p>
+          Browse upcoming FIFA competitions around the world.
+        </p>
+        <button>View events</button>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div id="play" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>GET INVOLVED</span>
+      <h1>Play Football</h1>
+      <p>
+        Discover different ways to enjoy and participate in football.
+      </p>
+    </div>
+
+    <div class="simple-card-grid">
+
+      <div class="info-card dark-card">
+        <div class="card-icon">01</div>
+        <h2>Grassroots Football</h2>
+        <p>
+          Discover football programmes for players of every level.
+        </p>
+      </div>
+
+      <div class="info-card dark-card">
+        <div class="card-icon">02</div>
+        <h2>Women's Football</h2>
+        <p>
+          Follow the continued growth of women's football.
+        </p>
+      </div>
+
+      <div class="info-card dark-card">
+        <div class="card-icon">03</div>
+        <h2>Futsal</h2>
+        <p>
+          Discover FIFA futsal competitions and development.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<div id="inside" class="page-section">
+
+  <section class="content-page">
+
+    <div class="page-heading">
+      <span>ORGANISATION</span>
+      <h1>Inside FIFA</h1>
+      <p>
+        Learn more about FIFA, its work and football development around the world.
+      </p>
+    </div>
+
+    <div class="inside-grid">
+
+      <div class="inside-card">
+        <span>ABOUT FIFA</span>
+        <h2>Who we are</h2>
+        <p>
+          Learn about FIFA's structure, organisation and work across global football.
+        </p>
+      </div>
+
+      <div class="inside-card">
+        <span>DEVELOPMENT</span>
+        <h2>Growing football</h2>
+        <p>
+          FIFA supports football development projects around the world.
+        </p>
+      </div>
+
+      <div class="inside-card">
+        <span>FOOTBALL</span>
+        <h2>Our competitions</h2>
+        <p>
+          Explore FIFA tournaments and international football competitions.
+        </p>
+      </div>
+
+      <div class="inside-card">
+        <span>GOVERNANCE</span>
+        <h2>Organisation</h2>
+        <p>
+          Find information about FIFA's governance and administration.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer id="footer">
+
   <div id="socials-bar">
-    <div class="left-group">
 
-      <div class="logo"></div>
+    <div class="left-group">
+      <div class="footer-logo">FIFA</div>
 
       <ul class="social-icons">
-        <li id="x"></li>
-        <li id="facebook"></li>
-        <li id="instagram"></li>
-        <li id="youtube"></li>
-        <li id="tiktok"></li>
+        <li>X</li>
+        <li>f</li>
+        <li>IG</li>
+        <li>YT</li>
+        <li>TT</li>
       </ul>
     </div>
 
     <div id="install">
       <span>Download the FIFA App today to enjoy more</span>
-      <div id="googleplay"></div>
-      <div id="appstore"></div>
+
+      <div class="store-buttons">
+        <div id="googleplay"></div>
+        <div id="appstore"></div>
+      </div>
     </div>
 
   </div>
 
-  <!-- MIDDLE BAR: FIFA Partners -->
   <div id="partners-section">
+
     <h4>FIFA PARTNERS</h4>
+
     <ul id="partners">
       <li id="aramco"></li>
       <li id="adidas"></li>
@@ -125,20 +590,25 @@
       <li id="qatar"></li>
       <li id="visa"></li>
     </ul>
+
   </div>
 
-  <!-- BOTTOM BAR: Terms & Copyright -->
   <div id="policy-bar">
+
     <div class="policy-links">
       <a href="#">PRIVACY POLICY</a>
       <a href="#">TERMS OF SERVICE</a>
     </div>
+
     <div class="copyright">
       Copyright © 1994 - 2026 FIFA. All rights reserved.
     </div>
+
   </div>
 
-</div>
-</body>
+</footer>
+
 <script src="script.js"></script>
+
+</body>
 </html>

@@ -1,85 +1,161 @@
 (function () {
-    const tabs = Array.from(document.querySelectorAll('.tab-item'));
-    const categoryEl = document.querySelector('.category-tag');
-    const titleEl = document.querySelector('.hero-title');
-    const descEl = document.querySelector('.hero-description');
-    const textCard = document.querySelector('.hero-text-card');
-    const prevBtn = document.getElementById('prevArrow');
-    const nextBtn = document.getElementById('nextArrow');
 
-    let activeIndex = tabs.findIndex(t => t.classList.contains('active'));
-    if (activeIndex === -1) activeIndex = 0;
+    const tabs = Array.from(document.querySelectorAll(".tab-item"));
+    const categoryEl = document.querySelector(".category-tag");
+    const titleEl = document.querySelector(".hero-title");
+    const descEl = document.querySelector(".hero-description");
+    const heroImage = document.getElementById("hero-image");
+    const textCard = document.querySelector(".hero-text-card");
 
-    let autoplayTimer = null;
-    const AUTOPLAY_MS = 6000;
+    const prevBtn = document.getElementById("prevArrow");
+    const nextBtn = document.getElementById("nextArrow");
 
-    function renderTab(index, { fade = true } = {}) {
-        const tab = tabs[index];
-        const category = tab.querySelector('.tab-category').textContent.trim();
-        const headline = tab.querySelector('.tab-headline').textContent.trim();
-        const desc = tab.dataset.desc || '';
+    const menuBtn = document.getElementById("menu-btn");
+    const mainMenu = document.getElementById("main-menu");
 
-        const applyContent = () => {
-            categoryEl.textContent = category;
-            titleEl.textContent = headline;
-            descEl.textContent = desc;
-            descEl.style.display = desc ? '' : 'none';
-            if (fade) {
-                requestAnimationFrame(() => textCard.classList.remove('is-swapping'));
-            }
-        };
+    const navLinks = document.querySelectorAll(".nav-link");
+    const pageSections = document.querySelectorAll(".page-section");
 
-        if (fade) {
-            textCard.classList.add('is-swapping');
-            setTimeout(applyContent, 200);
-        } else {
-            applyContent();
-        }
+    let activeIndex = tabs.findIndex(function (tab) {
+        return tab.classList.contains("active");
+    });
 
-        tabs.forEach((t, i) => t.classList.toggle('active', i === index));
-        activeIndex = index;
+    if (activeIndex === -1) {
+        activeIndex = 0;
     }
 
-    function goTo(index, opts) {
-        const wrapped = (index + tabs.length) % tabs.length;
-        renderTab(wrapped, opts);
+    let autoplayTimer;
+    const autoplayTime = 6000;
+
+    function changeSlide(index) {
+
+        if (index >= tabs.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = tabs.length - 1;
+        }
+
+        const tab = tabs[index];
+
+        textCard.classList.add("is-swapping");
+
+        setTimeout(function () {
+
+            categoryEl.textContent = tab.dataset.category;
+            titleEl.textContent = tab.dataset.title;
+            descEl.textContent = tab.dataset.desc;
+
+            if (tab.dataset.image) {
+                heroImage.src = tab.dataset.image;
+            }
+
+            tabs.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            tab.classList.add("active");
+
+            activeIndex = index;
+
+            textCard.classList.remove("is-swapping");
+
+        }, 200);
     }
 
     function startAutoplay() {
+
         stopAutoplay();
-        autoplayTimer = setInterval(() => goTo(activeIndex + 1), AUTOPLAY_MS);
+
+        autoplayTimer = setInterval(function () {
+            changeSlide(activeIndex + 1);
+        }, autoplayTime);
     }
 
     function stopAutoplay() {
+
         if (autoplayTimer) {
             clearInterval(autoplayTimer);
-            autoplayTimer = null;
         }
     }
 
-    tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => {
-            goTo(i);
+    tabs.forEach(function (tab, index) {
+
+        tab.addEventListener("click", function () {
+
+            changeSlide(index);
             startAutoplay();
+
         });
+
     });
 
-    prevBtn.addEventListener('click', () => {
-        goTo(activeIndex - 1);
+    prevBtn.addEventListener("click", function () {
+
+        changeSlide(activeIndex - 1);
         startAutoplay();
+
     });
 
-    nextBtn.addEventListener('click', () => {
-        goTo(activeIndex + 1);
+    nextBtn.addEventListener("click", function () {
+
+        changeSlide(activeIndex + 1);
         startAutoplay();
+
     });
 
-    const heroBanner = document.getElementById('hero-banner');
-    heroBanner.addEventListener('mouseenter', stopAutoplay);
-    heroBanner.addEventListener('mouseleave', startAutoplay);
+    menuBtn.addEventListener("click", function () {
 
-    // Initialize hero text to match the tab already marked active,
-    // without a fade on first load.
-    renderTab(activeIndex, { fade: false });
+        mainMenu.classList.toggle("open");
+
+        if (mainMenu.classList.contains("open")) {
+            menuBtn.textContent = "✕";
+        } else {
+            menuBtn.textContent = "☰";
+        }
+
+    });
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            const sectionName = link.dataset.section;
+
+            pageSections.forEach(function (section) {
+                section.classList.remove("active-section");
+            });
+
+            navLinks.forEach(function (item) {
+                item.classList.remove("active-nav");
+            });
+
+            document.getElementById(sectionName).classList.add("active-section");
+
+            link.classList.add("active-nav");
+
+            mainMenu.classList.remove("open");
+            menuBtn.textContent = "☰";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 800) {
+            mainMenu.classList.remove("open");
+            menuBtn.textContent = "☰";
+        }
+
+    });
+
     startAutoplay();
+
 })();
