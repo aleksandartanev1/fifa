@@ -1,37 +1,44 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>FIFA | The Home of Football</title>
-    <link rel="stylesheet" href="style.css">
-
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA | The Home of Football</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
   <div id="lanbar">
     <ul>
-      <li>FIFA REWARDS</li>
-      <li>FIFA+</li>
-      <li>FIFA STORE</li>
-      <li>FIFA COLLECT</li>
-      <li>Language</li>
+      <li><a href="rewards.html" data-i18n="topRewards">FIFA REWARDS</a></li>
+      <li><a href="fifa-plus.html" data-i18n="topFifaPlus">FIFA+</a></li>
+      <li><a href="store.html" data-i18n="topStore">FIFA STORE</a></li>
+      <li><a href="collect.html" data-i18n="topCollect">FIFA COLLECT</a></li>
+      <li class="language-menu">
+        <button id="languageToggle" class="language-toggle" type="button" data-i18n="language">Language</button>
+        <div id="languageDropdown" class="language-dropdown">
+          <button type="button" class="language-option" data-language="en">English</button>
+          <button type="button" class="language-option" data-language="mk">Macedonian</button>
+          <button type="button" class="language-option" data-language="sr">Serbian</button>
+        </div>
+      </li>
     </ul>
   </div>
+
   <div id="navbar">
     <ul>
-      <li class="logo"  onclick="window.location.href='index.html'"></li>
-      <li><a>TOURNAMENTS & EVENTS</a></li>
-      <li><a>MATCHES & STATS</a></li>
-      <li onclick="window.location.href='news/index.html'"><a>NEWS</a></li>
-      <li><a href="ranking/index.html">RANKINGS</a></li>
-      <li><a>TICKETS & HOSPITALITY</a></li>
-      <li><a>PLAY</a></li>
-      <li><a>NSIDE FIFA</a></li>
+      <li><a href="index.html" class="logo-link" aria-label="FIFA home"><span class="logo"></span></a></li>
+      <li><a href="tournaments.html" class="nav-link" data-i18n="navTournaments">TOURNAMENTS & EVENTS</a></li>
+      <li><a href="matches.html" class="nav-link" data-i18n="navMatches">MATCHES & STATS</a></li>
+      <li><a href="news/news.html" class="nav-link" data-i18n="navNews">NEWS</a></li>
+      <li><a href="rankings.html" class="nav-link" data-i18n="navRankings">RANKINGS</a></li>
+      <li><a href="tickets.html" class="nav-link" data-i18n="navTickets">TICKETS & HOSPITALITY</a></li>
+      <li><a href="play.html" class="nav-link" data-i18n="navPlay">PLAY</a></li>
+      <li><a href="inside-fifa.html" class="nav-link" data-i18n="navInside">INSIDE FIFA</a></li>
     </ul>
   </div>
 
   <section id="hero-banner">
     <div class="hero-main">
-
       <div class="hero-text-card">
         <span class="category-tag">FIFA World Cup 2026™</span>
         <h1 class="hero-title">
@@ -40,45 +47,48 @@
         <p class="hero-description">
           Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.
         </p>
-        <a href="#" class="btn-read-more">Read more</a>
+        <a href="#" class="btn-read-more" data-i18n="readMore">Read more</a>
+        <div class="hero-extra-info" id="heroExtraInfo">
+          <p>Spain finished the tournament with standout individual winners across the pitch as the final weekend delivered one last set of big performances.</p>
+          <p>Use the featured tabs below to move through a few more top stories from the FIFA homepage.</p>
+        </div>
       </div>
 
       <div class="hero-image-card">
-        <img src="awards.avif" alt="FIFA World Cup Award Winners" onerror="this.style.display='none'">
+        <img id="heroMainImage" src="awards.avif" alt="FIFA World Cup Award Winners" onerror="this.style.display='none'">
       </div>
 
-      <div class="hero-sidebar">
+      <div class="hero-sidebar" id="heroSidebarCard">
         <div class="next-up-header">
           <span class="next-up-label">Next Up</span>
-          <h3 class="next-up-title">Player Awards (FIFA Plus Archive Project Collections)</h3>
+          <h3 class="next-up-title" id="nextUpTitle">Player Awards (FIFA Plus Archive Project Collections)</h3>
         </div>
         <div class="next-up-image">
-          <img src="next-up-thumbnail.jpg" alt="Next Up Preview" onerror="this.style.display='none'">
+          <img id="nextUpImage" src="awards.avif" alt="Next Up Preview" onerror="this.style.display='none'">
         </div>
       </div>
-
     </div>
 
     <div class="hero-carousel-nav">
       <button class="nav-arrow" id="prevArrow" aria-label="Previous story">&lt;</button>
 
       <div class="tab-items" id="tabItems">
-        <button class="tab-item" data-desc="">
+        <button class="tab-item" data-desc="The latest FIFA World Cup 2026 highlights include spectacular finishes from distance, with every angle collected in one featured package." data-image="awards.avif" data-image-alt="World Cup long-range goals feature" data-next-title="Watch every long-range strike again in FIFA's match archive" data-next-image="awards.avif">
           <span class="tab-category">FIFA World Cup 2026™</span>
           <p class="tab-headline">Messi, Dembele and more: Watch all long-range goals at World Cup 2026</p>
         </button>
 
-        <button class="tab-item" data-desc="">
+        <button class="tab-item" data-desc="Spain's control, energy and depth made them one of the standout stories of the competition as tactics and tempo reshaped the tournament." data-image="awards.avif" data-image-alt="Spain at FIFA World Cup" data-next-title="Team analysis: how Spain raised the standard at the tournament" data-next-image="awards.avif">
           <span class="tab-category">FIFA World Cup 2026™</span>
           <p class="tab-headline">Spain soar at game-changing World Cup</p>
         </button>
 
-        <button class="tab-item" data-desc="">
+        <button class="tab-item" data-desc="FIFA's latest development proposal aims to grow long-term investment in coaching, facilities and access to the game across all confederations." data-image="awards.avif" data-image-alt="Inside FIFA development story" data-next-title="Council approval process and what expanded funding would support" data-next-image="awards.avif">
           <span class="tab-category">Inside FIFA</span>
           <p class="tab-headline">FIFA intends to expand football development funding to over USD 10 billion subject to approval by FIFA Council</p>
         </button>
 
-        <button class="tab-item active" data-desc="Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax.">
+        <button class="tab-item active" data-desc="Rodri, Pau Cubarsi, Unai Simon and Kylian Mbappe all picked up honours as the FIFA World Cup 2026 reached a spectacular climax." data-image="awards.avif" data-image-alt="FIFA World Cup Award Winners" data-next-title="Player Awards (FIFA Plus Archive Project Collections)" data-next-image="awards.avif">
           <span class="tab-category">FIFA World Cup 2026™</span>
           <p class="tab-headline">FIFA World Cup awards: Rodri, Cubarsi, Simon and Mbappe honoured</p>
         </button>
@@ -88,13 +98,36 @@
     </div>
   </section>
 
+  <section class="homepage-strip page-fade-in">
+    <div class="section-heading">
+      <span class="section-kicker">Homepage Highlights</span>
+      <h2>Explore FIFA's main sections</h2>
+      <p>The homepage stays focused on featured stories, while the main categories now open on their own separate pages.</p>
+    </div>
+
+    <div class="panel-cards">
+      <article class="panel-card">
+        <h3 data-i18n="navTournaments">TOURNAMENTS & EVENTS</h3>
+        <p>Go deeper into competitions, upcoming events and featured tournaments.</p>
+        <a href="tournaments.html" class="inline-link">Open section</a>
+      </article>
+      <article class="panel-card">
+        <h3 data-i18n="navNews">NEWS</h3>
+        <p>Read quick headline updates, short summaries and more homepage-style stories.</p>
+        <a href="news.html" class="inline-link">Open section</a>
+      </article>
+      <article class="panel-card">
+        <h3 data-i18n="navRankings">RANKINGS</h3>
+        <p>Check a simple rankings table and visit a dedicated page for team standings.</p>
+        <a href="rankings.html" class="inline-link">Open section</a>
+      </article>
+    </div>
+  </section>
 
   <div id="footer">
     <div id="socials-bar">
       <div class="left-group">
-
         <div class="logo"></div>
-
         <ul class="social-icons">
           <li id="x"></li>
           <li id="facebook"></li>
@@ -105,14 +138,12 @@
       </div>
 
       <div id="install">
-        <span>Download the FIFA App today to enjoy more</span>
+        <span data-i18n="footerApp">Download the FIFA App today to enjoy more</span>
         <div id="googleplay"></div>
         <div id="appstore"></div>
       </div>
-
     </div>
 
-    <!-- MIDDLE BAR: FIFA Partners -->
     <div id="partners-section">
       <h4>FIFA PARTNERS</h4>
       <ul id="partners">
@@ -127,7 +158,6 @@
       </ul>
     </div>
 
-    <!-- BOTTOM BAR: Terms & Copyright -->
     <div id="policy-bar">
       <div class="policy-links">
         <a href="#">PRIVACY POLICY</a>
@@ -137,8 +167,8 @@
         Copyright © 1994 - 2026 FIFA. All rights reserved.
       </div>
     </div>
-
   </div>
-  </body>
+
   <script src="script.js"></script>
-  </html>
+</body>
+</html>
