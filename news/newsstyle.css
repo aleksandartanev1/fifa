@@ -1,0 +1,1784 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #07182d;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   TOP LANGUAGE BAR
+===================================================== */
+
+#lanbar {
+    width: 100%;
+}
+
+#lanbar ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+    height: 50px;
+
+    gap: 1em;
+    padding-right: 25px;
+
+    background-color: #044a80;
+    color: white;
+
+    list-style: none;
+}
+
+#lanbar ul li {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+#navbar {
+    width: 100%;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+
+    background-color: #045694;
+    color: white;
+
+    list-style: none;
+}
+
+#navbar ul li {
+    list-style: none;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    background-image: url("/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+    width: 65px;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   RANKING TOP BAR
+===================================================== */
+
+.topbar {
+    width: 100%;
+    height: 29px;
+
+    margin-top: 10px;
+
+    background-color: white;
+
+    font-size: 13px;
+}
+
+.topbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 9px;
+
+    padding: 7px 410px 0 0;
+}
+
+.topbar a {
+    color: black;
+    text-decoration: none;
+}
+
+.topbar a.active {
+    color: #0057c8;
+    font-weight: bold;
+}
+
+.topbar a:hover {
+    color: #0057c8;
+}
+
+.topbar span {
+    color: #777;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    height: 63px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 55px;
+
+    margin-bottom: 60px;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+}
+
+.page-header h1 {
+    margin: 30px 0 0 0;
+
+    font-size: 37px;
+    font-weight: 500;
+
+    color: #111;
+}
+
+
+/* =====================================================
+   RANKING PAGE
+===================================================== */
+
+.ranking-page {
+    width: 100%;
+    background: #f7f7f8;
+    min-height: 0;
+    padding: 58px 55px 70px;
+    display: block;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title-row h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.fifa-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 2px;
+    color: #19518b;
+}
+
+.fifa-logo img {
+    width: 200px;
+    height: 50px;
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   COLUMNS
+===================================================== */
+
+.columns {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.ranking-column {
+    min-width: 0;
+}
+
+.ranking-column h3 {
+    margin: 0 0 11px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+    display: inline-block;
+
+    background: #061a33;
+    color: #fff;
+
+    border-radius: 2px;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    padding: 3px 5px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-head,
+.ranking-row {
+    display: grid;
+
+    grid-template-columns:
+        122px
+        1.3fr
+        1.15fr
+        90px;
+
+    align-items: center;
+}
+
+.table-head {
+    height: 27px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #111;
+}
+
+.table-head span:nth-child(1) {
+    padding-left: 30px;
+}
+
+.ranking-row {
+    min-height: 42px;
+
+    margin-bottom: 1px;
+
+    font-size: 14px;
+}
+
+.ranking-row:nth-child(odd) {
+    background: #fff;
+}
+
+.ranking-row:nth-child(even) {
+    background: transparent;
+}
+
+
+/* =====================================================
+   RANK
+===================================================== */
+
+.rank-cell {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-left: 9px;
+}
+
+.rank-number {
+    min-width: 23px;
+
+    font-size: 36px;
+    font-weight: 400;
+
+    text-align: center;
+}
+
+.movement {
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.up {
+    color: #00843d;
+}
+
+.down {
+    color: #e31837;
+}
+
+.same {
+    color: #777;
+}
+
+
+/* =====================================================
+   TEAM
+===================================================== */
+
+.team-cell {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.flag {
+    width: 49px;
+    height: 39px;
+
+    object-fit: cover;
+
+    border: 1px solid #e1e1e1;
+
+    background: #fff;
+
+    flex-shrink: 0;
+}
+
+.team-name {
+    color: #27415c;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #27415c;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+}
+
+.result-icon {
+    width: 20px;
+    height: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.win {
+    background: #16833f;
+}
+
+.loss {
+    background: #e6194b;
+}
+
+.draw {
+    background: #777b86;
+}
+
+.score-box {
+    background: #e7e9ed;
+
+    color: #59616c;
+
+    padding: 1px 4px;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   POINTS
+===================================================== */
+
+.points {
+    text-align: right;
+
+    padding-right: 14px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #203b58;
+}
+
+
+/* =====================================================
+   UPDATE ROW
+===================================================== */
+
+.update-row {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 20px;
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    color: #536070;
+}
+
+.update-row span {
+    white-space: nowrap;
+}
+
+.update-row b {
+    color: #27415c;
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   EXPLORE BUTTON
+===================================================== */
+
+.explore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    height: 45px;
+    margin-top: 13px;
+    padding: 0 38px;
+    border: 2px solid #0074e8;
+    border-radius: 30px;
+    background: white;
+    color: #0074e8;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.explore .arrow {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.explore:hover {
+    border: 2px solid #003e7d;
+    color: #003e7d;
+}
+
+.explore:active {
+    transform: scale(0.98);
+}
+.boldTxt{
+    font-weight: 600;
+}
+
+/* =====================================================
+   FIFA FUTSAL RANKING
+===================================================== */
+
+.h2-txt{
+    margin: 0;
+    padding: 58px 55px 70px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.ranking-page {
+    width: 100%;
+    background: #f7f7f8;
+
+    padding: 25px 17px 60px;
+
+    min-height: 0;
+}
+
+
+/* =====================================================
+   TWO COLUMNS
+===================================================== */
+
+.columns {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   COLUMN
+===================================================== */
+
+.ranking-column {
+    width: 100%;
+    min-width: 0;
+}
+
+.ranking-column h3 {
+    margin: 0 0 23px 0;
+
+    font-size: 25px;
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: #07182d;
+}
+
+
+/* =====================================================
+   UPDATE INFORMATION
+===================================================== */
+
+.ranking-info {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+
+    color: #31516f;
+
+    font-size: 14px;
+}
+
+.ranking-info b {
+    color: #38536e;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
+.ranking-table-header {
+    display: grid;
+
+    grid-template-columns:
+        150px
+        1fr
+        190px
+        100px;
+
+    align-items: center;
+
+    height: 35px;
+
+    padding: 0 20px;
+
+    color: #38536e;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.ranking-table-header span:nth-child(1) {
+    padding-left: 0;
+}
+
+.ranking-table-header span:nth-child(3),
+.ranking-table-header span:nth-child(4) {
+    text-align: left;
+}
+
+
+/* =====================================================
+   RANKING CARDS
+===================================================== */
+
+.ranking-cards {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+/* =====================================================
+   INDIVIDUAL CARD
+===================================================== */
+
+.ranking-row {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        150px
+        1fr
+        190px
+        100px;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 82px;
+
+    padding: 0 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe5ed;
+
+    border-radius: 13px;
+
+    color: #38536e;
+
+    transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.ranking-row:hover {
+    transform: translateY(-1px);
+
+    border-color: #c8d2df;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =====================================================
+   RANK CELL
+===================================================== */
+
+.rank-cell {
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    height: 100%;
+}
+
+.rank-number {
+    min-width: 28px;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    color: #38536e;
+
+    text-align: center;
+}
+
+
+/* small dot beside rank */
+
+.rank-cell::after {
+    content: "";
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #e3e7ee;
+}
+
+
+/* =====================================================
+   TEAM CELL
+===================================================== */
+
+.team-cell {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-width: 0;
+}
+
+.flag {
+    width: 61px;
+    height: 42px;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    background: transparent;
+}
+
+.team-name {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #38536e;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   POINTS
+===================================================== */
+
+.points {
+    text-align: left;
+
+    padding: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #38536e;
+}
+.move{
+    margin-bottom: 40px;
+    margin-top: -50px;
+    margin-left: 20px;
+}
+
+
+/* =====================================================
+   RESULT / +/-
+===================================================== */
+
+.result {
+    display: block;
+
+    color: #38536e;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* Hide old result icons */
+
+.result-icon {
+    display: none;
+}
+
+.score-box {
+    background: transparent;
+
+    padding: 0;
+
+    color: inherit;
+
+    font-size: inherit;
+}
+
+
+/* =====================================================
+   MEN HIGHLIGHT
+===================================================== */
+
+.ranking-row.highlight {
+    background: #d7f3df;
+
+    border: 1px solid #00d66b;
+}
+
+
+/* =====================================================
+   FIFA NEWS CARDS
+   ===================================================== */
+
+.news-section {
+    width: 100%;
+    padding: 45px 30px 60px;
+    box-sizing: border-box;
+    background: #f5f7fa;
+    overflow: hidden;
+}
+
+
+/* SLIDER */
+
+.news-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.news-slider {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    transition: transform 0.5s ease;
+}
+
+
+/* CARD */
+
+.news-card {
+    width: 408px;
+    min-width: 408px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(20, 40, 70, 0.08);
+
+    transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+
+/* IMAGE */
+
+.news-card > img {
+    display: block;
+
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+}
+
+
+/* CONTENT */
+
+.news-content {
+    padding: 27px 30px 30px;
+    min-height: 190px;
+    box-sizing: border-box;
+}
+
+
+/* CATEGORY */
+
+.news-category {
+    font-size: 18px;
+    line-height: 1.3;
+
+    color: #65748b;
+
+    margin-bottom: 14px;
+}
+
+
+/* TITLE */
+
+.news-content h3 {
+    margin: 0;
+
+    font-size: 25px;
+    line-height: 1.45;
+
+    font-weight: 600;
+
+    color: #071b33;
+
+    transition: color 0.2s ease;
+}
+
+
+/* DATE */
+
+.news-date {
+    margin: 18px 0 0;
+
+    font-size: 17px;
+
+    color: #65748b;
+}
+
+
+/* =====================================================
+   HOVER
+   ===================================================== */
+
+.news-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(20, 40, 70, 0.15);
+}
+
+
+/* Само насловот станува син */
+
+.news-card:hover .news-content h3 {
+    color: #0875e1;
+}
+
+
+/* =====================================================
+   CONTROLS
+   ===================================================== */
+
+.news-controls {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.news-arrow {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    border: 2px solid #0875e1;
+
+    color: #0875e1;
+
+    font-size: 40px;
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.news-arrow.prev {
+    border-color: #8fc6fa;
+    color: #8fc6fa;
+}
+
+
+.news-arrow:hover {
+    background: #0875e1;
+    color: white;
+}
+
+
+.news-arrow.prev:hover {
+    background: #0875e1;
+    color: white;
+}
+
+/* =====================================================
+   NEWS LISTING PAGE (FEATURED + LIST)
+===================================================== */
+
+.news-page {
+    width: 100%;
+    background: #f7f7f8;
+    padding: 25px 55px 70px;
+
+}
+
+.latest-news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.latest-news-header h2 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #07182d;
+}
+
+.see-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #0875e1;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.news-feature-grid {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 50px;
+    width: 100%;
+    align-items: start;
+}
+
+/* FEATURED STORY */
+
+.news-feature img {
+    display: block;
+    width: 100%;
+    height: 640px;
+    object-fit: cover;
+    background: #dfe5ed;
+}
+
+.news-feature .news-category {
+    display: block;
+    margin-top: 18px;
+    font-size: 17px;
+    color: #0875e1;
+    font-weight: 600;
+}
+
+.news-feature h3 {
+    margin-top: 8px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #07182d;
+}
+
+/* SIDEBAR LIST */
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.news-list-item {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.news-list-item img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #dfe5ed;
+}
+
+.news-list-item .news-category {
+    display: block;
+    font-size: 15px;
+    color: #0875e1;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.news-list-item h4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #07182d;
+}
+
+.news-status-message {
+    padding: 40px 0;
+    color: #536070;
+    font-size: 15px;
+}
+
+@media (max-width: 900px) {
+    .news-page {
+        padding: 25px 20px 60px;
+    }
+
+    .news-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-feature img {
+        height: 380px;
+    }
+}
+
+
+/* =====================================================
+   INSIDE FIFA FOOTER
+   ===================================================== */
+
+#inside-footer {
+    width: 100%;
+    background: #f7f9fc;
+    color: #071d35;
+    margin-top: 70px;
+    position: relative;
+}
+
+
+/* MAIN FOOTER AREA */
+
+.inside-footer-content {
+    min-height: 610px;
+    padding: 32px 30px 45px 30px;
+    box-sizing: border-box;
+}
+
+
+/* INSIDE FIFA LOGO */
+
+.inside-logo {
+    font-size: 31px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #071d35;
+    margin-bottom: 48px;
+}
+
+.inside-logo span {
+    color: #0877df;
+}
+
+.inside-logo sup {
+    font-size: 9px;
+    color: #0877df;
+    position: relative;
+    top: -13px;
+    margin-left: 2px;
+}
+
+
+/* FOOTER COLUMNS */
+
+.inside-footer-columns {
+    display: flex;
+    gap: 210px;
+}
+
+
+/* COLUMN */
+
+.footer-column {
+    width: 300px;
+}
+
+.footer-column h3 {
+    margin: 0 0 20px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #071d35;
+}
+
+
+/* LINKS */
+
+.footer-column a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 380px;
+
+    text-decoration: none;
+    color: #45617f;
+
+    font-size: 15px;
+    line-height: 1.45;
+
+    margin-bottom: 9px;
+
+    transition: color 0.2s ease;
+}
+
+
+
+/* HOVER */
+
+.footer-column a:hover {
+    color: #0877df;
+}
+
+.footer-column a:hover span {
+    display: inline;
+}
+
+
+/* BACK TO TOP */
+
+.inside-back-top {
+    position: absolute;
+
+    right: 18px;
+    bottom: 80px;
+
+    width: 92px;
+    height: 92px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #d8dde6;
+    color: #0877df;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition:0.2s ease;
+}
+
+.inside-back-top:hover {
+    background: #cbd2dd;
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+#footer {
+    position: relative;
+
+    width: 100%;
+
+    flex-shrink: 0;
+
+    background-color: #005596;
+
+    color: white;
+
+    font-family: "Noto Sans", sans-serif;
+
+    z-index: 1;
+}
+
+#footer ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+/* =====================================================
+   SOCIAL BAR
+===================================================== */
+
+#socials-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 40px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.left-group {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.left-group .logo {
+    width: 70px;
+    height: 30px;
+
+    background-image: url("/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.social-icons li {
+    width: 22px;
+    height: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+#install {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#googleplay,
+#appstore {
+    width: 120px;
+    height: 38px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   FIFA PARTNERS
+===================================================== */
+
+#partners-section {
+    text-align: center;
+
+    padding: 25px 20px 35px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#partners-section h4 {
+    margin: 0 0 20px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+
+    opacity: 0.9;
+}
+
+#partners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
+
+    flex-wrap: wrap;
+}
+
+#partners li {
+    width: 110px;
+    height: 35px;
+}
+
+
+/* =====================================================
+   POLICY
+===================================================== */
+
+#policy-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    font-size: 12px;
+}
+
+.policy-links {
+    display: flex;
+
+    gap: 25px;
+}
+
+.policy-links a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+.copyright {
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   FOOTER IMAGES
+===================================================== */
+
+#x,
+#facebook,
+#instagram,
+#youtube,
+#tiktok,
+#aramco,
+#adidas,
+#adi,
+#cocacola,
+#hyundai,
+#lenovo,
+#qatar,
+#visa,
+#googleplay,
+#appstore {
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: contain;
+}
+
+
+/* SOCIAL */
+
+#x {
+    background-image: url("/x.png");
+}
+
+#facebook {
+    background-image: url("/facebook.png");
+}
+
+#instagram {
+    background-image: url("/instagram.png");
+}
+
+#youtube {
+    background-image: url("/youtube.png");
+}
+
+#tiktok {
+    background-image: url("/tiktok.png");
+}
+
+
+/* PARTNERS */
+
+#aramco {
+    background-image: url("/aramco.png");
+}
+
+#adidas {
+    background-image: url("/adidas.png");
+}
+
+#adi {
+    background-image: url("/adi.png");
+}
+
+#cocacola {
+    background-image: url("/cocacola.png");
+}
+
+#hyundai {
+    background-image: url("/hyundai.png");
+}
+
+#lenovo {
+    background-image: url("/lenovo.png");
+}
+
+#qatar {
+    background-image: url("/qatar.png");
+}
+
+#visa {
+    background-image: url("/visa.png");
+}
+
+
+/* APP */
+
+#googleplay {
+    background-image: url("/google.png");
+}
+
+#appstore {
+    background-image: url("/appstore.png");
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .topbar-links {
+        padding-right: 20px;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .ranking-page {
+        padding: 35px 20px 60px;
+    }
+
+    .page-header {
+        padding-left: 20px;
+    }
+
+    .update-row {
+        flex-wrap: wrap;
+    }
+
+    #navbar ul {
+        justify-content: flex-start;
+
+        gap: 20px;
+
+        padding: 0 20px;
+
+        overflow-x: auto;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 560px) {
+
+    #lanbar ul {
+        gap: 8px;
+
+        padding-right: 10px;
+
+        font-size: 10px;
+    }
+
+    #navbar ul {
+        height: 60px;
+
+        font-size: 10px;
+    }
+
+
+    .topbar {
+        font-size: 10px;
+    }
+
+    .topbar-links {
+        padding-right: 10px;
+
+        gap: 5px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .page-header {
+        height: 55px;
+
+        margin-bottom: 30px;
+
+        padding-left: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+
+        margin-top: 15px;
+    }
+
+
+    .ranking-page {
+        padding: 25px 10px 50px;
+    }
+
+
+    .title-row {
+        align-items: flex-start;
+    }
+
+    .title-row h2 {
+        font-size: 23px;
+    }
+
+    .fifa-logo {
+        display: none;
+    }
+
+
+    .table-head,
+    .ranking-row {
+        grid-template-columns:
+            55px
+            1.2fr
+            100px
+            70px;
+    }
+
+    .table-head span:nth-child(1) {
+        padding-left: 5px;
+    }
+
+    .ranking-row {
+        font-size: 9px;
+    }
+
+
+    .rank-number {
+        font-size: 25px;
+    }
+
+    .flag {
+        width: 35px;
+        height: 28px;
+    }
+
+    .result {
+        font-size: 7px;
+    }
+
+    .points {
+        font-size: 11px;
+    }
+
+
+    .update-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 6px;
+
+        font-size: 10px;
+    }
+
+    .update-row span {
+        white-space: normal;
+    }
+
+
+    .explore {
+        width: 100%;
+
+        height: 52px;
+
+        padding: 0 20px;
+
+        font-size: 16px;
+    }
+
+    .explore .arrow {
+        font-size: 25px;
+    }
+
+
+    /* FOOTER MOBILE */
+
+    #socials-bar {
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    #install {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    #partners {
+        gap: 20px;
+    }
+
+    #policy-bar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+
+        padding: 20px;
+    }
+
+}

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA/Coca-Cola Men's World Ranking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= TOP LANGUAGE BAR ================= -->
+
+  <div id="lanbar">
+    <ul>
+      <li>FIFA REWARDS</li>
+      <li>FIFA+</li>
+      <li>FIFA STORE</li>
+      <li>FIFA COLLECT</li>
+      <li>Language</li>
+    </ul>
+  </div>
+
+
+  <!-- ================= NAVBAR ================= -->
+
+  <div id="navbar">
+    <ul>
+      <li class="logo"  onclick="window.location.href='../index.html'"></li>
+
+      <li><a>TOURNAMENTS & EVENTS</a></li>
+      <li><a>MATCHES & STATS</a></li>
+      <li><a>NEWS</a></li>
+
+      <li>
+        <a href="ranking/index.html">RANKINGS</a>
+      </li>
+
+      <li><a>TICKETS & HOSPITALITY</a></li>
+      <li><a>PLAY</a></li>
+      <li><a>NSIDE FIFA</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ================= RANKING TOP BAR ================= -->
+
+  <div class="topbar">
+
+    <div class="topbar-links">
+
+      <a href="#" class="active">
+        FIFA Rankings
+      </a>
+
+      <span>›</span>
+
+      <a href="#">
+        FIFA/Coca-Cola World Ranking
+      </a>
+
+      <a href="#">
+        FIFA Futsal World Ranking
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= PAGE HEADER ================= -->
+
+  <header class="page-header">
+
+    <h1>
+      FIFA Rankings
+    </h1>
+
+  </header>
+
+
+  <!-- ================= RANKING PAGE ================= -->
+
+  <main class="ranking-page">
+
+    <div class="title-row">
+
+      <h2>
+        FIFA/Coca-Cola World Ranking
+      </h2>
+
+      <div class="fifa-logo">
+
+        <img
+          src="FIFA_Men's_World_Ranking_logo.png"
+          alt="FIFA Ranking"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= COLUMNS ================= -->
+
+    <div class="columns">
+
+
+      <!-- ================= MEN ================= -->
+
+      <section class="ranking-column">
+
+        <h3>
+          Men
+        </h3>
+
+        <div class="status">
+          Match window closed
+        </div>
+
+
+        <div class="table-head">
+
+          <span>Rank</span>
+          <span>Team</span>
+          <span>Last Result</span>
+          <span>Points</span>
+
+        </div>
+
+
+        <div
+          id="menTable"
+          class="table">
+        </div>
+
+
+        <div class="update-row">
+
+          <span>
+            <span class="boldTxt">
+            Last official update:
+            </span>
+            <b id="menDate">
+              20 July 2026
+            </b>
+          </span>
+
+          <span>
+            <span class="boldTxt">
+            Next official update:
+            </span>
+            <b>
+              07 October 2026 (47 days)
+            </b>
+          </span>
+
+        </div>
+
+
+        <button
+          class="explore"
+          onclick="showFull('men')">
+
+          <span>
+            Explore full Men's ranking
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+      </section>
+
+
+      <!-- ================= WOMEN ================= -->
+
+      <section class="ranking-column">
+
+        <h3>
+          Women
+        </h3>
+
+        <div class="status">
+          Match window closed
+        </div>
+
+
+        <div class="table-head">
+
+          <span>Rank</span>
+          <span>Team</span>
+          <span>Last Result</span>
+          <span>Points</span>
+
+        </div>
+
+
+        <div
+          id="womenTable"
+          class="table">
+        </div>
+
+
+        <div class="update-row">
+
+          <span>
+            <span class="boldTxt">
+            Last official update:
+            </span>
+            <b id="womenDate">
+              16 June 2026
+            </b>
+          </span>
+
+          <span>
+            <span class="boldTxt">
+            Next official update:
+            </span>
+            <b>
+              20 October 2026 (60 days)
+            </b>
+          </span>
+
+        </div>
+
+
+        <button
+          class="explore"
+          onclick="showFull('women')">
+
+          <span>
+            Explore full Women's ranking
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ================= FIFA FUTSAL RANKING ================= -->
+
+  <h2 class="h2-txt">
+    Fifa Futsal Ranking
+  </h2>
+
+
+  <main class="ranking-page">
+
+    <div class="columns">
+
+
+      <!-- ================= FUTSAL MEN ================= -->
+
+      <section class="ranking-column">
+
+        <h3>
+          Men
+        </h3>
+
+        <div class="ranking-info">
+
+          <span>
+            Last official update:
+            <b>08 May 2026</b>
+          </span>
+
+          <span>
+            Next official update:
+            <b>25 September 2026</b>
+          </span>
+
+        </div>
+
+
+        <div class="ranking-table-header">
+
+          <span>RK</span>
+          <span>Team</span>
+          <span>Total Points</span>
+          <span>+/-</span>
+
+        </div>
+
+
+        <!-- CHANGED ONLY THIS ID -->
+
+        <div
+          id="futsalMenTable"
+          class="ranking-cards">
+        </div>
+
+
+      </section>
+
+
+      <!-- ================= FUTSAL WOMEN ================= -->
+
+      <section class="ranking-column">
+
+        <h3>
+          Women
+        </h3>
+
+        <div class="ranking-info">
+
+          <span>
+            Last official update:
+            <b>08 May 2026</b>
+          </span>
+
+          <span>
+            Next official update:
+            <b>25 September 2026</b>
+          </span>
+
+        </div>
+
+
+        <div class="ranking-table-header">
+
+          <span>RK</span>
+          <span>Team</span>
+          <span>Total Points</span>
+          <span>+/-</span>
+
+        </div>
+
+
+        <!-- CHANGED ONLY THIS ID -->
+
+        <div
+          id="futsalWomenTable"
+          class="ranking-cards">
+        </div>
+
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+  <div class="columns">
+
+
+      <!-- ================= MEN ================= -->
+
+      <section class="ranking-column">
+
+        <div class="update-row">
+        <button
+          class="explore move"
+          onclick="showFull('men')">
+
+          <span>
+            Explore full Men's ranking
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+      </section>
+
+
+      <!-- ================= WOMEN ================= -->
+
+      <section class="ranking-column">
+
+        <div
+          id="womenTable"
+          class="table">
+        </div>
+
+
+        <div class="update-row">
+        <button
+          class="explore move"
+          onclick="showFull('women')">
+
+          <span>
+            Explore full Women's ranking
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+      </section>
+
+    </div>
+
+
+    <!-- ================= FIFA NEWS CARDS ================= -->
+
+<section class="news-section">
+
+  <div class="news-slider-wrapper">
+
+    <div class="news-slider" id="newsSlider">
+
+      <!-- CARD 1 -->
+      <article class="news-card">
+
+        <img src="images/news1.jpg" alt="Spain Men's Ranking">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            Men's Ranking
+          </div>
+
+          <h3>
+            Champions Spain surge to summit of FIFA/Coca-Cola Men's World Ranking
+          </h3>
+
+          <p class="news-date">
+            20 Jul 2026
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 2 -->
+      <article class="news-card">
+
+        <img src="images/news2.jpg" alt="Women's Football">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            Women's Football
+          </div>
+
+          <h3>
+            Spain scale new heights at summit of FIFA/Coca-Cola Women's World Ranking
+          </h3>
+
+          <p class="news-date">
+            16 Jun 2026
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 3 -->
+      <article class="news-card">
+
+        <img src="images/news3.jpg" alt="Argentina Men's Ranking">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            Men's Ranking
+          </div>
+
+          <h3>
+            Argentina reclaim top spot in the FIFA/Coca-Cola Men's World Ranking
+          </h3>
+
+          <p class="news-date">
+            11 Jun 2026
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 4 -->
+      <article class="news-card">
+
+        <img src="images/news4.jpg" alt="Gibraltar">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            Member Associations
+          </div>
+
+          <h3>
+            Gibraltar: a decade of hard work beginning to bear fruit
+          </h3>
+
+          <p class="news-date">
+            19 May 2026
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 5 -->
+      <article class="news-card">
+
+        <img src="images/news5.jpg" alt="Member Associations">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            Member Associations
+          </div>
+
+          <h3>
+            Kosovo: building a stronger future for football
+          </h3>
+
+          <p class="news-date">
+            13 May 2026
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- CARD 6 -->
+      <article class="news-card">
+
+        <img src="images/news6.jpg" alt="FIFA Football">
+
+        <div class="news-content">
+
+          <div class="news-category">
+            FIFA
+          </div>
+
+          <h3>
+            Football continues to grow around the world
+          </h3>
+
+          <p class="news-date">
+            08 May 2026
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+
+  <!-- CAROUSEL BUTTONS -->
+
+  <div class="news-controls">
+
+    <button
+      class="news-arrow prev"
+      id="newsPrev"
+      aria-label="Previous news">
+
+      ‹
+
+    </button>
+
+
+    <button
+      class="news-arrow next"
+      id="newsNext"
+      aria-label="Next news">
+
+      ›
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= INSIDE FIFA FOOTER ================= -->
+
+<footer id="inside-footer">
+
+  <div class="inside-footer-content">
+
+    <!-- LOGO -->
+     <img src="insidefifa.png">
+
+    <div class="inside-footer-columns">
+
+      <!-- WHAT FIFA DOES -->
+      <div class="footer-column">
+
+        <h3>What FIFA does</h3>
+
+        <a href="#">Legal</a>
+        <a href="#">Transfer system </a>
+        <a href="#">Women's Football</a>
+        <a href="#">Advancing football</a>
+        <a href="#">Innovation</a>
+        <a href="#">Talent development </a>
+        <a href="#">Tournament organisation </a>
+        <a href="#">Sustainability </a>
+        <a href="#">Human Rights & Anti-Discrimination</a>
+        <a href="#">Health and medical</a>
+        <a href="#">Education initiatives</a>
+
+      </div>
+
+
+      <!-- ALSO VISIT -->
+      <div class="footer-column">
+
+        <h3>Also visit</h3>
+
+        <a href="#">All stories & topics </a>
+        <a href="#">Reports & Documents </a>
+        <a href="#">FIFA Foundation </a>
+        <a href="#">FIFA Museum </a>
+        <a href="#">Jobs & Careers </a>
+        <a href="#">Contact FIFA </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+
+</footer>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer id="footer">
+
+
+    <!-- ================= SOCIALS BAR ================= -->
+
+    <div id="socials-bar">
+
+      <div class="left-group">
+
+        <div class="logo"></div>
+
+        <ul class="social-icons">
+
+          <li id="x"></li>
+          <li id="facebook"></li>
+          <li id="instagram"></li>
+          <li id="youtube"></li>
+          <li id="tiktok"></li>
+
+        </ul>
+
+      </div>
+
+
+      <div id="install">
+
+        <span>
+          Download the FIFA App today to enjoy more
+        </span>
+
+        <div id="googleplay"></div>
+
+        <div id="appstore"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= FIFA PARTNERS ================= -->
+
+    <div id="partners-section">
+
+      <h4>
+        FIFA PARTNERS
+      </h4>
+
+      <ul id="partners">
+
+        <li id="aramco"></li>
+        <li id="adidas"></li>
+        <li id="adi"></li>
+        <li id="cocacola"></li>
+        <li id="hyundai"></li>
+        <li id="lenovo"></li>
+        <li id="qatar"></li>
+        <li id="visa"></li>
+
+      </ul>
+
+    </div>
+
+
+    <!-- ================= POLICY BAR ================= -->
+
+    <div id="policy-bar">
+
+      <div class="policy-links">
+
+        <a href="#">
+          PRIVACY POLICY
+        </a>
+
+        <a href="#">
+          TERMS OF SERVICE
+        </a>
+
+      </div>
+
+
+      <div class="copyright">
+
+        Copyright © 1994 - 2026 FIFA.
+        All rights reserved.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

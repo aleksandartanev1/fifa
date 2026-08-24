@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News | FIFA | The Home of Football</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="newsstyle.css">
+
+</head>
+<body>
+<div id="lanbar">
+  <ul>
+    <li>FIFA REWARDS</li>
+    <li>FIFA+</li>
+    <li>FIFA STORE</li>
+    <li>FIFA COLLECT</li>
+    <li>Language</li>
+  </ul>
+</div>
+<div id="navbar">
+  <ul>
+    <li class="logo" onclick="window.location.href='../index.html'"></li>
+    <li><a>TOURNAMENTS & EVENTS</a></li>
+    <li><a>MATCHES & STATS</a></li>
+    <li><a href="index.html">NEWS</a></li>
+    <li><a href="../ranking/index.html">RANKINGS</a></li>
+    <li><a>TICKETS & HOSPITALITY</a></li>
+    <li><a>PLAY</a></li>
+    <li><a>NSIDE FIFA</a></li>
+  </ul>
+</div>
+
+<section class="news-page">
+  <div class="latest-news-header">
+    <h2>Latest news</h2>
+    <a href="#" class="see-all">See all &rarr;</a>
+  </div>
+
+  <div id="newsStatus" class="news-status-message">Loading latest news&hellip;</div>
+
+  <div class="news-feature-grid" id="newsFeatureGrid" style="display:none;">
+    <a class="news-feature" id="newsFeature" href="#">
+      <img id="featureImg" src="" alt="">
+      <span class="news-category" id="featureCategory"></span>
+      <h3 id="featureTitle"></h3>
+    </a>
+
+    <div class="news-list" id="newsList"></div>
+  </div>
+</section>
+
+
+<div id="footer">
+  <div id="socials-bar">
+    <div class="left-group">
+
+      <div class="logo"></div>
+
+      <ul class="social-icons">
+        <li id="x"></li>
+        <li id="facebook"></li>
+        <li id="instagram"></li>
+        <li id="youtube"></li>
+        <li id="tiktok"></li>
+      </ul>
+    </div>
+
+    <div id="install">
+      <span>Download the FIFA App today to enjoy more</span>
+      <div id="googleplay"></div>
+      <div id="appstore"></div>
+    </div>
+
+  </div>
+
+  <!-- MIDDLE BAR: FIFA Partners -->
+  <div id="partners-section">
+    <h4>FIFA PARTNERS</h4>
+    <ul id="partners">
+      <li id="aramco"></li>
+      <li id="adidas"></li>
+      <li id="adi"></li>
+      <li id="cocacola"></li>
+      <li id="hyundai"></li>
+      <li id="lenovo"></li>
+      <li id="qatar"></li>
+      <li id="visa"></li>
+    </ul>
+  </div>
+
+  <!-- BOTTOM BAR: Terms & Copyright -->
+  <div id="policy-bar">
+    <div class="policy-links">
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">TERMS OF SERVICE</a>
+    </div>
+    <div class="copyright">
+      Copyright © 1994 - 2026 FIFA. All rights reserved.
+    </div>
+  </div>
+
+</div>
+</body>
+<script src="../script.js"></script>
+<script src="news.js"></script>
+</html>
