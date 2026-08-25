@@ -7,7 +7,7 @@
 // domain (including GitHub Pages) — no CORS block, no need for
 // localhost. Free plan is capped at 100 requests/day.
 // ============================================================
-const NEWS_API_KEY = "e9de2b8eb1934bbca5b281a51a55ce21";
+const NEWS_API_KEY = "a2e347bd0fafa9cb0495cf46f9d0fad2";
 
 const FALLBACK_IMG =
     "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='100%25' height='100%25' fill='%23dfe5ed'/%3E%3C/svg%3E";
