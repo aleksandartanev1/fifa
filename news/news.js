@@ -1,14 +1,11 @@
 // ============================================================
-// NEWS API CONFIG
+// NEWS API CONFIG — GNews.io
 // ============================================================
-// 1. Get a free key at https://newsapi.org/register
+// 1. Get a free key at https://gnews.io/register
 // 2. Paste it below.
-// 3. NewsAPI's free "Developer" plan only allows requests whose
-//    origin is "localhost" — it will NOT work opened directly
-//    via file:// or on a live domain. Serve this folder with a
-//    local server while testing, e.g.:
-//      python -m http.server 8000
-//    then visit http://localhost:8000/news/index.html
+// GNews's free plan allows direct browser requests from any
+// domain (including GitHub Pages) — no CORS block, no need for
+// localhost. Free plan is capped at 100 requests/day.
 // ============================================================
 const NEWS_API_KEY = "e9de2b8eb1934bbca5b281a51a55ce21";
 
@@ -21,27 +18,30 @@ async function loadLatestNews() {
 
     if (!NEWS_API_KEY || NEWS_API_KEY === "YOUR_API_KEY_HERE") {
         statusEl.textContent =
-            "Add your NewsAPI.org key in news/news.js to load live headlines.";
+            "Add your GNews.io key in news/news.js to load live headlines.";
         return;
     }
 
     const endpoint =
-        "https://newsapi.org/v2/everything?q=" +
+        "https://gnews.io/api/v4/search?q=" +
         encodeURIComponent(
             '(soccer OR football) AND (FIFA OR "premier league" OR "champions league" OR "world cup" OR uefa OR "la liga") NOT (NFL OR "american football")'
         ) +
-        "&language=en&sortBy=publishedAt&pageSize=5&apiKey=" +
+        "&lang=en&max=5&sortby=publishedAt&apikey=" +
         NEWS_API_KEY;
 
     try {
         const res = await fetch(endpoint);
 
         if (!res.ok) {
-            throw new Error("NewsAPI request failed: " + res.status);
+            const body = await res.json().catch(() => ({}));
+            throw new Error(
+                "GNews request failed: " + res.status + " " + (body.errors ? body.errors.join(", ") : "")
+            );
         }
 
         const data = await res.json();
-        const articles = (data.articles || []).filter((a) => a.title && a.title !== "[Removed]");
+        const articles = (data.articles || []).filter((a) => a.title);
 
         if (!articles.length) {
             statusEl.textContent = "No headlines found right now.";
@@ -54,8 +54,7 @@ async function loadLatestNews() {
     } catch (err) {
         console.error(err);
         statusEl.textContent =
-            "Couldn't load live news (likely a CORS block — NewsAPI's free plan " +
-            "only allows requests from localhost). Check the console for details.";
+            "Couldn't load live news. Check the console for details.";
     }
 }
 
@@ -70,7 +69,7 @@ function renderNews(articles) {
     featureLink.href = featured.url || "#";
     featureLink.target = "_blank";
     featureLink.rel = "noopener";
-    featureImg.src = featured.urlToImage || FALLBACK_IMG;
+    featureImg.src = featured.image || FALLBACK_IMG;
     featureImg.alt = featured.title;
     featureCategory.textContent = featured.source && featured.source.name ? featured.source.name : "News";
     featureTitle.textContent = featured.title;
@@ -86,7 +85,7 @@ function renderNews(articles) {
         item.rel = "noopener";
 
         item.innerHTML = `
-      <img src="${article.urlToImage || FALLBACK_IMG}" alt="${escapeHtml(article.title)}">
+      <img src="${article.image || FALLBACK_IMG}" alt="${escapeHtml(article.title)}">
       <div>
         <span class="news-category">${escapeHtml(
             article.source && article.source.name ? article.source.name : "News"
