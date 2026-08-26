@@ -4,20 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIFA/Coca-Cola Men's World Ranking</title>
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body data-page="rankings">
 
   <!-- ================= TOP LANGUAGE BAR ================= -->
 
   <div id="lanbar">
     <ul>
-      <li>FIFA REWARDS</li>
-      <li>FIFA+</li>
-      <li>FIFA STORE</li>
-      <li>FIFA COLLECT</li>
-      <li>Language</li>
+      <li><a href="../rewards.html" data-i18n="topRewards">FIFA REWARDS</a></li>
+      <li><a href="../fifa-plus.html" data-i18n="topFifaPlus">FIFA+</a></li>
+      <li><a href="../store.html" data-i18n="topStore">FIFA STORE</a></li>
+      <li><a href="../collect.html" data-i18n="topCollect">FIFA COLLECT</a></li>
+      <li class="language-menu">
+        <button id="languageToggle" class="language-toggle" type="button" data-i18n="language">Language</button>
+        <div id="languageDropdown" class="language-dropdown">
+          <button type="button" class="language-option" data-language="en">English</button>
+          <button type="button" class="language-option" data-language="mk">Macedonian</button>
+          <button type="button" class="language-option" data-language="sr">Serbian</button>
+        </div>
+      </li>
     </ul>
   </div>
 
@@ -26,19 +34,19 @@
 
   <div id="navbar">
     <ul>
-      <li class="logo"></li>
+      <li><a href="../index.html" class="logo-link" aria-label="FIFA home"><span class="logo"></span></a></li>
 
-      <li><a>TOURNAMENTS & EVENTS</a></li>
-      <li><a>MATCHES & STATS</a></li>
-      <li><a>NEWS</a></li>
+      <li><a href="../tournaments.html" class="nav-link" data-i18n="navTournaments">TOURNAMENTS & EVENTS</a></li>
+      <li><a href="../matches.html" class="nav-link" data-i18n="navMatches">MATCHES & STATS</a></li>
+      <li><a href="../news/news.html" class="nav-link" data-i18n="navNews">NEWS</a></li>
 
       <li>
-        <a href="ranking/index.html">RANKINGS</a>
+        <a href="../ranking/index.html" class="nav-link active" data-i18n="navRankings">RANKINGS</a>
       </li>
 
-      <li><a>TICKETS & HOSPITALITY</a></li>
-      <li><a>PLAY</a></li>
-      <li><a>NSIDE FIFA</a></li>
+      <li><a href="../tickets.html" class="nav-link" data-i18n="navTickets">TICKETS & HOSPITALITY</a></li>
+      <li><a href="../play.html" class="nav-link" data-i18n="navPlay">PLAY</a></li>
+      <li><a href="../inside-fifa.html" class="nav-link" data-i18n="navInside">INSIDE FIFA</a></li>
     </ul>
   </div>
 
@@ -740,6 +748,7 @@
   </footer>
 
 
+  <script src="../script.js"></script>
   <script src="script.js"></script>
 
 </body>

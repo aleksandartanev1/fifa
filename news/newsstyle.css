@@ -91,7 +91,8 @@ body {
 ===================================================== */
 
 .logo {
-    background-image: url("/logo.png");
+    display: block;
+    background-image: url("../logo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1120,6 +1121,13 @@ body {
     color: #07182d;
 }
 
+.news-feature-meta {
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #536070;
+}
+
 /* SIDEBAR LIST */
 
 .news-list {
@@ -1141,6 +1149,7 @@ body {
     object-fit: cover;
     flex-shrink: 0;
     background: #dfe5ed;
+    border-radius: 6px;
 }
 
 .news-list-item .news-category {
@@ -1158,10 +1167,25 @@ body {
     color: #07182d;
 }
 
+.news-item-meta {
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #536070;
+}
+
+.news-item-description {
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #536070;
+}
+
 .news-status-message {
     padding: 40px 0;
     color: #536070;
     font-size: 15px;
+    line-height: 1.5;
 }
 
 @media (max-width: 900px) {
@@ -1362,7 +1386,7 @@ body {
     width: 70px;
     height: 30px;
 
-    background-image: url("/logo.png");
+    background-image: url("../logo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1511,69 +1535,69 @@ body {
 /* SOCIAL */
 
 #x {
-    background-image: url("/x.png");
+    background-image: url("../x.png");
 }
 
 #facebook {
-    background-image: url("/facebook.png");
+    background-image: url("../facebook.png");
 }
 
 #instagram {
-    background-image: url("/instagram.png");
+    background-image: url("../instagram.png");
 }
 
 #youtube {
-    background-image: url("/youtube.png");
+    background-image: url("../youtube.png");
 }
 
 #tiktok {
-    background-image: url("/tiktok.png");
+    background-image: url("../tiktok.png");
 }
 
 
 /* PARTNERS */
 
 #aramco {
-    background-image: url("/aramco.png");
+    background-image: url("../aramco.png");
 }
 
 #adidas {
-    background-image: url("/adidas.png");
+    background-image: url("../adidas.png");
 }
 
 #adi {
-    background-image: url("/adi.png");
+    background-image: url("../adi.png");
 }
 
 #cocacola {
-    background-image: url("/cocacola.png");
+    background-image: url("../cocacola.png");
 }
 
 #hyundai {
-    background-image: url("/hyundai.png");
+    background-image: url("../hyundai.png");
 }
 
 #lenovo {
-    background-image: url("/lenovo.png");
+    background-image: url("../lenovo.png");
 }
 
 #qatar {
-    background-image: url("/qatar.png");
+    background-image: url("../qatar.png");
 }
 
 #visa {
-    background-image: url("/visa.png");
+    background-image: url("../visa.png");
 }
 
 
 /* APP */
 
 #googleplay {
-    background-image: url("/google.png");
+    background-image: url("../google.png");
 }
 
 #appstore {
-    background-image: url("/appstore.png");
+    background-image: url("../appstore.png");
 }
 
 
