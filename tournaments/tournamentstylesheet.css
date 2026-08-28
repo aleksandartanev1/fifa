@@ -1,0 +1,248 @@
+/* Tournament carousel (poster-card style) */
+.tournament-carousel {
+    margin-bottom: 10px;
+}
+
+.tournament-carousel .section-heading h2 {
+    font-size: 30px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.poster-card {
+    flex: 0 0 calc(33.333% - 14px);
+    scroll-snap-align: start;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.poster-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 0.92;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #e7f1f8;
+    box-shadow: 0 14px 30px rgba(2, 41, 71, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.poster-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px rgba(2, 41, 71, 0.2);
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.poster-title {
+    margin-top: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0b2d4a;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.carousel-nav .nav-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: white;
+    color: #045694;
+    font-size: 20px;
+    line-height: 1;
+    box-shadow: 0 8px 18px rgba(2, 41, 71, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.carousel-nav .nav-arrow:hover {
+    background-color: #045694;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .poster-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 760px) {
+    .poster-card {
+        flex: 0 0 78%;
+    }
+}
+
+/* Bidding process cards — trophy photo style */
+.bidding-section {
+    margin-bottom: 10px;
+}
+
+.bidding-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.bidding-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.bidding-photo {
+    position: relative;
+    aspect-ratio: 1 / 0.92;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #e7f1f8;
+    box-shadow: 0 14px 30px rgba(2, 41, 71, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bidding-photo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px rgba(2, 41, 71, 0.2);
+}
+
+.bidding-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.year-tag {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 18px;
+    border-radius: 4px;
+    background-color: rgba(4, 33, 61, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .bidding-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .bidding-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .hero-main,
+    .panel-cards,
+    .cards-grid,
+    .news-grid,
+    .store-grid,
+    .collect-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-main {
+        grid-template-columns: 1fr;
+    }
+
+    .score-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    #lanbar ul,
+    #navbar ul,
+    #socials-bar,
+    #policy-bar,
+    #install {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #lanbar ul,
+    #navbar ul {
+        padding: 14px;
+    }
+
+    .homepage-strip,
+    .page-content,
+    .hero-text-card {
+        padding: 24px;
+    }
+
+    .page-hero {
+        padding: 24px;
+    }
+
+    .hero-carousel-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tab-items,
+    .panel-cards,
+    .cards-grid,
+    .news-grid,
+    .store-grid,
+    .collect-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page-hero {
+    background:none;
+    position: relative;
+    right: 35px;
+
+}
+
+.page-content p, .page-hero h1, .page-hero .section-kicker {
+    color: #0b2d4a;
+    max-width: none;
+
+
+}
