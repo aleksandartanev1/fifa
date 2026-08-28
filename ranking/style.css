@@ -87,20 +87,6 @@ body {
 }
 
 
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo {
-    display: block;
-    background-image: url("../logo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 100%;
-    width: 65px;
-    cursor: pointer;
-}
 
 
 /* =====================================================
