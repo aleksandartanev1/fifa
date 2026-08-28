@@ -1641,3 +1641,15 @@ body {
     }
 
 }
+
+.logo {
+    display: block;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 170px;
+    height: 32px;
+    position: relative;
+    bottom: 6px;
+}
