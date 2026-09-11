@@ -137,7 +137,7 @@ a {
 
 .logo {
     display: block;
-    background-image: url("logo.png");
+    background-image: url("pictures/logo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -746,21 +746,21 @@ a {
     background-size: contain;
 }
 
-#x { background-image: url("x.png"); }
-#facebook { background-image: url("facebook.png"); }
-#instagram { background-image: url("instagram.png"); }
-#youtube { background-image: url("youtube.png"); }
-#tiktok { background-image: url("tiktok.png"); }
-#aramco { background-image: url("aramco.png"); }
-#adidas { background-image: url("adidas.png"); }
-#adi { background-image: url("adi.png"); }
-#cocacola { background-image: url("cocacola.png"); }
-#hyundai { background-image: url("hyundai.png"); }
-#lenovo { background-image: url("lenovo.png"); }
-#qatar { background-image: url("qatar.png"); }
-#visa { background-image: url("visa.png"); }
-#googleplay { background-image: url("google.png"); }
-#appstore { background-image: url("appstore.png"); }
+#x { background-image: url("pictures/x.png"); }
+#facebook { background-image: url("pictures/facebook.png"); }
+#instagram { background-image: url("pictures/instagram.png"); }
+#youtube { background-image: url("pictures/youtube.png"); }
+#tiktok { background-image: url("pictures/tiktok.png"); }
+#aramco { background-image: url("pictures/aramco.png"); }
+#adidas { background-image: url("pictures/adidas.png"); }
+#adi { background-image: url("pictures/adi.png"); }
+#cocacola { background-image: url("pictures/cocacola.png"); }
+#hyundai { background-image: url("pictures/hyundai.png"); }
+#lenovo { background-image: url("pictures/lenovo.png"); }
+#qatar { background-image: url("pictures/qatar.png"); }
+#visa { background-image: url("pictures/visa.png"); }
+#googleplay { background-image: url("pictures/google.png"); }
+#appstore { background-image: url("pictures/appstore.png"); }
 
 
 

@@ -359,7 +359,7 @@
     color: white;
     background:
         linear-gradient(135deg, rgba(1, 24, 44, 0.78), rgba(3, 85, 149, 0.88)),
-        url("messi.jpg") center/cover no-repeat;
+        url("../pictures/messi.jpg") center/cover no-repeat;
     overflow: hidden;
 }
 
