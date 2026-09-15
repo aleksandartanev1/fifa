@@ -129,10 +129,14 @@ a {
 }
 
 #navbar ul li a:hover,
-#navbar ul li a.active {
+#navbar ul li a.active{
     opacity: 1;
     border-bottom-color: white;
     transform: translateY(-1px);
+}
+
+#navbar ul li:first-child a {
+    border-bottom: none;
 }
 
 .logo {
@@ -146,6 +150,7 @@ a {
     position: relative;
     bottom: 6px;
 }
+
 
 .logo-link {
     display: inline-flex;
@@ -424,10 +429,11 @@ a {
 
 .section-heading p,
 .page-hero p {
-    max-width: 760px;
+    max-width: 90%;
     color: #44637e;
-    line-height: 1.6;
+    line-height: 2;
 }
+
 
 .page-hero {
     background: linear-gradient(135deg, #045694, #0a6ab0);

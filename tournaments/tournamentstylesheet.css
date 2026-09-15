@@ -213,9 +213,6 @@
         padding: 24px;
     }
 
-    .page-hero {
-        padding: 24px;
-    }
 
     .hero-carousel-nav {
         flex-direction: column;
@@ -234,9 +231,11 @@
 }
 
 .page-hero {
+    padding: 24px;
     background:none;
     position: relative;
     right: 35px;
+    margin-left: 40px;
 
 }
 
