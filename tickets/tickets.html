@@ -38,155 +38,62 @@
   </div>
 
   <main class="tickets-page page-fade-in">
-    <section class="tickets-hero">
-      <div class="tickets-hero-copy">
-        <span class="tickets-kicker">MATCHDAY ACCESS</span>
-        <h1>TICKETS & HOSPITALITY</h1>
-        <h2>Experience football live.</h2>
-        <p>Discover upcoming international matches, qualifiers, major tournaments and premium hospitality experiences.</p>
-        <div class="tickets-hero-actions">
-          <a href="#upcomingMatches" class="primary-button">Explore Matches</a>
-          <a href="#hospitalitySection" class="secondary-button ticket-secondary">Hospitality</a>
-        </div>
-      </div>
-      <div class="tickets-hero-panel">
-        <div class="hero-info-box">
-          <span class="hero-info-label">Now Trending</span>
-          <strong>International fixtures, premium lounges and tournament access</strong>
-        </div>
-        <div class="hero-info-box">
-          <span class="hero-info-label">Ticket Window</span>
-          <strong>Upcoming sales update refreshed automatically from football schedule data</strong>
-        </div>
+    <section class="tickets-intro">
+      <h1>TICKETS & HOSPITALITY</h1>
+      <p>Welcome to the perfect place to get all the first-hand information you need about tickets and hospitality to the most thrilling FIFA tournaments.</p>
+    </section>
+
+    <section class="tournament-selector-wrap" aria-label="Tournament selector">
+      <div class="tournament-selector" id="tournamentSelector"></div>
+    </section>
+
+    <section class="tournament-hero" id="tournamentHero">
+      <div class="tournament-hero-content">
+        <h2 id="tournamentTitle"></h2>
+        <p id="tournamentDate"></p>
+        <div class="ticket-action-grid" id="ticketActionGrid"></div>
       </div>
     </section>
 
-    <section class="tickets-section" id="upcomingMatches">
-      <div class="tickets-section-head">
-        <div>
-          <span class="section-kicker">Automated Schedule</span>
-          <h2>Upcoming Matches</h2>
+    <section class="editorial-section">
+      <div class="tickets-container">
+        <div class="editorial-heading">
+          <h2>Other tournaments</h2>
+          <div class="carousel-controls" aria-label="Other tournament controls">
+            <button type="button" aria-label="Previous tournament">&lsaquo;</button>
+            <button type="button" aria-label="Next tournament">&rsaquo;</button>
+          </div>
         </div>
-        <p>Nearest future football matches are shown first. Ticket status labels are demo UI labels for the student project.</p>
-      </div>
-      <div id="matchesStatus" class="tickets-status">Loading upcoming matches...</div>
-      <div id="matchesGrid" class="matches-grid"></div>
-    </section>
-
-    <section class="featured-ticket-banner">
-      <div class="featured-banner-copy">
-        <span class="section-kicker">ROAD TO 2026</span>
-        <h2>FIFA WORLD CUP 2026</h2>
-        <p>Follow the world's best national teams on their journey to the FIFA World Cup.</p>
-        <div class="featured-hosts">USA • Canada • Mexico</div>
-        <a href="#majorTournaments" class="primary-button">Explore World Cup Tickets</a>
-      </div>
-    </section>
-
-    <section class="tickets-section">
-      <div class="tickets-section-head">
-        <div>
-          <span class="section-kicker">Live Schedule Snapshot</span>
-          <h2>Matchday</h2>
+        <div class="editorial-grid">
+          <article class="editorial-card">
+            <img src="../tournaments/womens-world-cup-2027-playoff.png" alt="FIFA Women's World Cup 2027 Play-Off Tournament">
+            <h3>Register your interest in tickets for FIFA Women's World Cup 2027&trade; Play-Off Tournament</h3>
+          </article>
+          <article class="editorial-card">
+            <img src="../tournaments/bidding.png" alt="FIFA World Cup 2030 ticket information">
+            <h3>Register your interest in tickets for FIFA World Cup 2030&trade;</h3>
+          </article>
+          <article class="editorial-card">
+            <img src="../tournaments/intercontinental-cup-2026.png" alt="FIFA ASEAN Cup 2026 ticket information">
+            <h3>Register your interest in tickets for FIFA ASEAN Cup 2026&trade;</h3>
+          </article>
         </div>
-        <p>If nothing is live right now, the next football matches for today and tomorrow are shown instead.</p>
-      </div>
-      <div id="matchdayStatus" class="tickets-status">Loading matchday updates...</div>
-      <div id="matchdayGrid" class="matchday-grid"></div>
-    </section>
 
-    <section class="tickets-section" id="majorTournaments">
-      <div class="tickets-section-head">
-        <div>
-          <span class="section-kicker">Global Events</span>
-          <h2>Major Tournaments</h2>
+        <h2 class="past-heading">Past tournaments</h2>
+        <div class="editorial-grid past-grid">
+          <article class="editorial-card">
+            <img src="../pictures/spainwinners.avif" alt="FIFA World Cup 2026 tournament">
+            <h3>FIFA World Cup 2026&trade;</h3>
+          </article>
+          <article class="editorial-card">
+            <img src="../tournaments/womens-world-cup-2027.png" alt="FIFA Women's football tournament">
+            <h3>FIFA Women's Champions Cup 2026&trade;</h3>
+          </article>
+          <article class="editorial-card">
+            <img src="../pictures/awards.jpg" alt="FIFA tournament awards">
+            <h3>FIFA Club World Cup 2025&trade;</h3>
+          </article>
         </div>
-      </div>
-      <div class="tournament-grid">
-        <article class="tournament-card tournament-card-featured">
-          <span class="ticket-badge">Tickets Planning</span>
-          <h3>FIFA World Cup 2026</h3>
-          <p class="tournament-location">USA • Canada • Mexico</p>
-          <p>Track host cities, knockout-stage venues and future ticket windows for football's biggest tournament.</p>
-          <div class="ticket-status available">Tickets Available</div>
-          <a href="#upcomingMatches" class="secondary-button ticket-secondary">Explore Tickets</a>
-        </article>
-        <article class="tournament-card">
-          <span class="ticket-badge">Europe</span>
-          <h3>UEFA EURO</h3>
-          <p class="tournament-location">Continental Championship</p>
-          <p>Plan around major European national-team matches, supporter demand and hospitality experiences.</p>
-          <div class="ticket-status fast">Selling Fast</div>
-          <a href="#upcomingMatches" class="secondary-button ticket-secondary">Explore Tickets</a>
-        </article>
-        <article class="tournament-card">
-          <span class="ticket-badge">Club Stage</span>
-          <h3>FIFA Club World Cup</h3>
-          <p class="tournament-location">International Club Competition</p>
-          <p>Follow elite club football, premium access packages and high-demand matchday experiences.</p>
-          <div class="ticket-status soon">Coming Soon</div>
-          <a href="#upcomingMatches" class="secondary-button ticket-secondary">Explore Tickets</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="tickets-section hospitality-section" id="hospitalitySection">
-      <div class="tickets-section-head">
-        <div>
-          <span class="section-kicker">Premium Access</span>
-          <h2>Hospitality Experiences</h2>
-          <p class="tickets-section-copy">More Than Just A Match</p>
-        </div>
-        <p>Upgrade your matchday experience with FIFA hospitality and premium stadium access options.</p>
-      </div>
-      <div class="hospitality-grid">
-        <article class="hospitality-card premium-card">
-          <span class="ticket-badge">Premium Lounge</span>
-          <h3>Premium Lounge</h3>
-          <p>Enjoy premium seating, food, drinks and exclusive lounge access before and after the match.</p>
-          <div class="ticket-status available">Tickets Available</div>
-          <a href="#upcomingMatches" class="primary-button">Explore Hospitality</a>
-        </article>
-        <article class="hospitality-card premium-card">
-          <span class="ticket-badge">VIP Access</span>
-          <h3>VIP Matchday Experience</h3>
-          <p>Premium stadium access combined with exclusive hospitality services and excellent match views.</p>
-          <div class="ticket-status limited">Limited Availability</div>
-          <a href="#upcomingMatches" class="primary-button">Explore Hospitality</a>
-        </article>
-        <article class="hospitality-card premium-card">
-          <span class="ticket-badge">Private Suites</span>
-          <h3>Private Suites</h3>
-          <p>A private matchday environment designed for groups, guests and unforgettable football experiences.</p>
-          <div class="ticket-status soon">Coming Soon</div>
-          <a href="#upcomingMatches" class="primary-button">Discover Suites</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="tickets-section journey-section">
-      <div class="tickets-section-head">
-        <div>
-          <span class="section-kicker">Planning Guide</span>
-          <h2>Your Matchday Journey</h2>
-        </div>
-      </div>
-      <div class="journey-grid">
-        <article class="journey-card">
-          <span class="journey-number">01</span>
-          <h3>Choose your match</h3>
-          <p>Review the nearest upcoming fixtures and decide which football experience fits your plans.</p>
-        </article>
-        <article class="journey-card">
-          <span class="journey-number">02</span>
-          <h3>Select your ticket</h3>
-          <p>Compare general access, premium seating and hospitality options before tickets move quickly.</p>
-        </article>
-        <article class="journey-card">
-          <span class="journey-number">03</span>
-          <h3>Get ready for matchday</h3>
-          <p>Check venue details, city information and timing so your stadium visit feels smooth and simple.</p>
-        </article>
       </div>
     </section>
   </main>

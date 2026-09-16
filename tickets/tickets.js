@@ -1,429 +1,238 @@
-const SPORTS_DB_BASE = "https://www.thesportsdb.com/api/v1/json/123";
-const today = new Date();
-
-const preferredLeagueWords = [
-    "UEFA",
-    "FIFA",
-    "World Cup",
-    "Qualifier",
-    "International",
-    "Nations League",
-    "Euro"
-];
-
-const europeanLeagueWords = [
-    "English Premier League",
-    "Spanish La Liga",
-    "German Bundesliga",
-    "Italian Serie A",
-    "French Ligue 1",
-    "UEFA",
-    "Scottish Premier League",
-    "Dutch Eredivisie",
-    "Portuguese Primeira Liga",
-    "Belgian Pro League",
-    "Swedish Allsvenskan",
-    "Norwegian Eliteserien",
-    "Irish Premier Division"
-];
-
-const fallbackMatches = [
+const tournaments = [
     {
-        league: "FIFA World Cup Qualifiers",
-        homeTeam: "Italy",
-        awayTeam: "Norway",
-        dateEvent: "2026-11-18",
-        strTime: "20:45:00",
-        strVenue: "San Siro",
-        strCity: "Milan, Italy",
-        status: "Tickets Available"
-    },
-    {
-        league: "UEFA Nations League",
-        homeTeam: "Portugal",
-        awayTeam: "Netherlands",
-        dateEvent: "2026-11-19",
-        strTime: "21:00:00",
-        strVenue: "Estadio da Luz",
-        strCity: "Lisbon, Portugal",
-        status: "Selling Fast"
-    },
-    {
-        league: "FIFA World Cup Qualifiers",
-        homeTeam: "Spain",
-        awayTeam: "Croatia",
-        dateEvent: "2026-11-20",
-        strTime: "20:45:00",
-        strVenue: "Estadio La Cartuja",
-        strCity: "Seville, Spain",
-        status: "Limited Availability"
-    },
-    {
-        league: "UEFA European Qualifiers",
-        homeTeam: "France",
-        awayTeam: "Denmark",
-        dateEvent: "2026-11-20",
-        strTime: "20:45:00",
-        strVenue: "Stade de France",
-        strCity: "Paris, France",
-        status: "Tickets Available"
-    },
-    {
-        league: "International Friendly",
-        homeTeam: "England",
-        awayTeam: "Belgium",
-        dateEvent: "2026-11-21",
-        strTime: "19:45:00",
-        strVenue: "Wembley Stadium",
-        strCity: "London, England",
-        status: "Coming Soon"
-    },
-    {
-        league: "UEFA Nations League",
-        homeTeam: "Germany",
-        awayTeam: "Poland",
-        dateEvent: "2026-11-22",
-        strTime: "20:45:00",
-        strVenue: "Olympiastadion",
-        strCity: "Berlin, Germany",
-        status: "Selling Fast"
-    }
-];
-
-async function loadTicketsPage() {
-    await Promise.all([loadUpcomingMatches(), loadMatchday()]);
-}
-
-async function loadUpcomingMatches() {
-    const statusEl = document.getElementById("matchesStatus");
-    const gridEl = document.getElementById("matchesGrid");
-
-    try {
-        const events = await collectFutureEvents(14);
-        const prioritized = prioritizeUpcomingEvents(events).slice(0, 8);
-        const matches = prioritized.length >= 6
-            ? prioritized
-            : [...prioritized, ...fallbackMatches].slice(0, 8);
-
-        renderUpcomingMatches(matches, gridEl);
-        statusEl.textContent = prioritized.length >= 6
-            ? "Upcoming football fixtures are sorted automatically by date."
-            : "Live match data is limited right now, so fallback showcase matches are filling the remaining cards.";
-    } catch (error) {
-        console.error("Could not load upcoming ticket matches.", error);
-        renderUpcomingMatches(fallbackMatches, gridEl);
-        statusEl.textContent = "Couldn't load the live schedule, so fallback match cards are being shown.";
-    }
-}
-
-async function loadMatchday() {
-    const statusEl = document.getElementById("matchdayStatus");
-    const gridEl = document.getElementById("matchdayGrid");
-
-    try {
-        const events = await collectFutureEvents(2);
-        const liveOrNext = getMatchdayEvents(events).slice(0, 4);
-        const items = liveOrNext.length ? liveOrNext : fallbackMatches.slice(0, 4);
-
-        renderMatchday(items, gridEl);
-        statusEl.textContent = liveOrNext.length
-            ? "Current live or nearest upcoming football matches."
-            : "No live football match is available right now, so the next scheduled matches are shown.";
-    } catch (error) {
-        console.error("Could not load matchday data.", error);
-        renderMatchday(fallbackMatches.slice(0, 4), gridEl);
-        statusEl.textContent = "Matchday is showing fallback entries right now.";
-    }
-}
-
-async function collectFutureEvents(daysToCheck) {
-    const requests = [];
-
-    for (let index = 0; index < daysToCheck; index += 1) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + index);
-        const dayString = date.toISOString().split("T")[0];
-        requests.push(fetchJson(`${SPORTS_DB_BASE}/eventsday.php?d=${dayString}&s=Soccer`));
-    }
-
-    const responses = await Promise.allSettled(requests);
-    const events = [];
-
-    responses.forEach((result) => {
-        if (result.status !== "fulfilled") {
-            return;
-        }
-
-        (result.value.events || []).forEach((event) => {
-            if (isFutureEvent(event)) {
-                events.push(event);
+        id: "brazil-2027",
+        shortLogo: {
+            fifa: "FIFA",
+            main: "W",
+            sub: "Women's World Cup Brazil 2027"
+        },
+        title: "FIFA Women's World Cup Brazil 2027™",
+        date: "24 June – 25 July 2027",
+        accent: "#1f10ee",
+        heroBg: "linear-gradient(150deg, rgba(2, 70, 18, 0.88), rgba(6, 113, 39, 0.92)), linear-gradient(26deg, transparent 0 30%, #d2aa00 31% 47%, transparent 48%), linear-gradient(154deg, transparent 0 35%, #d2aa00 36% 54%, transparent 55%)",
+        cards: [
+            {
+                icon: "ticket",
+                heading: "Tickets",
+                text: "Experience the thrill of top women's football, don't miss out!",
+                button: "Register your interest"
+            },
+            {
+                icon: "diamond",
+                heading: "Hospitality",
+                text: "Register your interest in hospitality for the FIFA Women's World Cup Brazil 2027™",
+                button: "Register your interest"
+            },
+            {
+                icon: "info",
+                heading: "More information",
+                text: "Visit our FIFA Women's World Cup Brazil 2027™ Ticketing FAQ for more details.",
+                button: "View FAQ"
             }
-        });
-    });
-
-    return events;
-}
-
-async function fetchJson(url) {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
-    }
-
-    return response.json();
-}
-
-function isFutureEvent(event) {
-    if (!event || !event.dateEvent || !event.strHomeTeam || !event.strAwayTeam) {
-        return false;
-    }
-
-    const eventDate = getEventDate(event);
-    if (!eventDate) {
-        return false;
-    }
-
-    return eventDate.getTime() >= today.getTime() && event.strStatus !== "FT";
-}
-
-function prioritizeUpcomingEvents(events) {
-    return events
-        .filter((event) => event.strLeague)
-        .sort((first, second) => {
-            const firstPreferred = getLeaguePriority(first.strLeague);
-            const secondPreferred = getLeaguePriority(second.strLeague);
-
-            if (firstPreferred !== secondPreferred) {
-                return firstPreferred - secondPreferred;
+        ]
+    },
+    {
+        id: "poland-2026",
+        shortLogo: {
+            fifa: "FIFA",
+            main: "U20",
+            sub: "Women's World Cup Poland 2026"
+        },
+        title: "FIFA U-20 Women's World Cup Poland 2026™",
+        date: "5 - 27 September 2026",
+        accent: "#7f3b86",
+        heroBg: "linear-gradient(135deg, rgba(8, 78, 35, 0.78), rgba(166, 191, 58, 0.82)), radial-gradient(circle at 25% 18%, rgba(255, 255, 255, 0.18), transparent 28%), repeating-linear-gradient(135deg, rgba(255,255,255,0.12) 0 8px, transparent 8px 28px)",
+        cards: [
+            {
+                icon: "ticket",
+                heading: "Tickets",
+                text: "Be there to witness the rise of the next generation of stars",
+                button: "Buy now"
             }
-
-            return getEventDate(first).getTime() - getEventDate(second).getTime();
-        })
-        .map((event, index) => ({
-            league: event.strLeague,
-            homeTeam: event.strHomeTeam,
-            awayTeam: event.strAwayTeam,
-            homeBadge: event.strHomeTeamBadge || "",
-            awayBadge: event.strAwayTeamBadge || "",
-            dateEvent: event.dateEvent,
-            strTime: event.strTime,
-            strVenue: event.strVenue || "Official venue to be confirmed",
-            strCity: event.strCity || "Host city update coming soon",
-            status: getTicketStatus(index)
-        }));
-}
-
-function getLeaguePriority(leagueName) {
-    if (preferredLeagueWords.some((word) => leagueName.includes(word))) {
-        return 0;
+        ]
+    },
+    {
+        id: "morocco-2026",
+        shortLogo: {
+            fifa: "FIFA",
+            main: "U17",
+            sub: "Women's World Cup Morocco 2026"
+        },
+        title: "FIFA U-17 Women's World Cup Morocco 2026™",
+        date: "17 October - 7 November 2026",
+        accent: "#9258f1",
+        heroBg: "linear-gradient(135deg, rgba(9, 138, 107, 0.94), rgba(7, 155, 121, 0.9)), repeating-radial-gradient(circle at 50% 42%, transparent 0 40px, rgba(33, 44, 159, 0.72) 42px 50px)",
+        cards: [
+            {
+                icon: "ticket",
+                heading: "Tickets",
+                text: "Witness the next generation turn their dreams into reality",
+                button: "Buy now"
+            }
+        ]
+    },
+    {
+        id: "qatar-2026",
+        shortLogo: {
+            fifa: "FIFA",
+            main: "U17",
+            sub: "World Cup Qatar 2026"
+        },
+        title: "FIFA U-17 World Cup Qatar 2026™",
+        date: "19 November - 13 December 2026",
+        accent: "#75002d",
+        heroBg: "linear-gradient(135deg, rgba(159, 0, 65, 0.96), rgba(111, 0, 45, 0.96)), radial-gradient(circle at 78% 42%, rgba(234, 26, 90, 0.46), transparent 28%), linear-gradient(108deg, transparent 0 78%, #f16b18 79% 82%, #f8dd24 83% 85%, transparent 86%)",
+        cards: [
+            {
+                icon: "ticket",
+                heading: "Tickets",
+                text: "Get ready to book your seat for the tournament in Qatar",
+                button: "Register Now"
+            }
+        ]
+    },
+    {
+        id: "champions-cup",
+        shortLogo: {
+            fifa: "",
+            main: "W",
+            sub: "Women's Champions Cup"
+        },
+        title: "FIFA Women's Champions Cup Miami 2027™",
+        date: "27 - 31 January 2027",
+        accent: "#202b8c",
+        heroBg: "linear-gradient(135deg, rgba(4, 14, 45, 0.97), rgba(6, 18, 63, 0.96)), linear-gradient(130deg, transparent 0 17%, rgba(245, 199, 67, 0.9) 18% 20%, transparent 21%), linear-gradient(315deg, transparent 0 16%, rgba(255,255,255,0.88) 17% 18%, transparent 19%)",
+        cards: [
+            {
+                icon: "ticket",
+                heading: "Tickets",
+                text: "Prepare to book your seat in Miami to attend the tournament's second edition",
+                button: "Register your interest"
+            }
+        ]
     }
+];
 
-    if (europeanLeagueWords.some((word) => leagueName.includes(word))) {
-        return 1;
-    }
+let activeTournamentId = tournaments[0].id;
 
-    return 2;
+function loadTicketsPage() {
+    renderTournamentTabs();
+    renderTournamentHero(tournaments[0]);
 }
 
-function getTicketStatus(index) {
-    const statuses = [
-        "Tickets Available",
-        "Selling Fast",
-        "Coming Soon",
-        "Limited Availability"
-    ];
+function renderTournamentTabs() {
+    const selector = document.getElementById("tournamentSelector");
 
-    return statuses[index % statuses.length];
-}
-
-function renderUpcomingMatches(matches, container) {
-    container.innerHTML = matches.map((match) => `
-        <article class="ticket-card">
-          <div class="ticket-card-top">
-            <span class="competition-badge">${escapeHtml(match.league)}</span>
-            <span class="ticket-status ${statusClass(match.status)}">${escapeHtml(match.status)}</span>
-          </div>
-          <div class="teams-row">
-            <div class="team-block">
-              ${renderTeamVisual(match.homeTeam, match.homeBadge)}
-              <div class="team-name">${escapeHtml(match.homeTeam)}</div>
-            </div>
-            <div class="vs-block">VS<span class="match-time">${escapeHtml(formatTime(match.strTime))}</span></div>
-            <div class="team-block">
-              ${renderTeamVisual(match.awayTeam, match.awayBadge)}
-              <div class="team-name">${escapeHtml(match.awayTeam)}</div>
-            </div>
-          </div>
-          <div class="ticket-date">${escapeHtml(formatDate(match.dateEvent))}</div>
-          <button type="button" class="details-toggle" aria-expanded="false">
-            <span>Match details</span>
-            <span class="details-chevron">▾</span>
-          </button>
-          <div class="ticket-details" hidden>
-            <div class="ticket-meta-item">
-              <span>Venue</span>
-              <strong>${escapeHtml(match.strVenue)}</strong>
-            </div>
-            <div class="ticket-meta-item">
-              <span>City</span>
-              <strong>${escapeHtml(match.strCity)}</strong>
-            </div>
-            <div class="ticket-meta-item">
-              <span>Date</span>
-              <strong>${escapeHtml(formatDate(match.dateEvent))}</strong>
-            </div>
-            <div class="ticket-meta-item">
-              <span>Ticket information</span>
-              <strong>${escapeHtml(match.status)}</strong>
-            </div>
-            <a href="#hospitalitySection" class="primary-button">View Tickets</a>
-          </div>
-        </article>
+    selector.innerHTML = tournaments.map((tournament) => `
+        <button
+          type="button"
+          class="tournament-tab ${tournament.id === activeTournamentId ? "active" : ""}"
+          style="--accent: ${tournament.accent}"
+          data-tournament-id="${tournament.id}"
+          aria-pressed="${tournament.id === activeTournamentId}"
+        >
+          <span class="tournament-logo">
+            ${renderLogoMark(tournament.shortLogo)}
+          </span>
+        </button>
     `).join("");
 }
 
-function renderTeamVisual(teamName, badgeUrl) {
-    const safeBadgeUrl = typeof badgeUrl === "string" ? badgeUrl.trim() : "";
-
-    if (safeBadgeUrl) {
+function renderLogoMark(logo) {
+    if (logo.sub === "Women's Champions Cup") {
         return `
-            <div class="team-icon team-icon-badge">
-              <img
-                src="${escapeHtml(safeBadgeUrl)}"
-                alt="${escapeHtml(teamName)} badge"
-                loading="lazy"
-                onerror="this.parentElement.classList.add('team-icon-fallback'); this.remove(); this.parentElement.textContent='${escapeHtml(getTeamSymbol(teamName))}';"
-              >
-            </div>
+            <span class="logo-symbol">W</span>
+            <span class="logo-sub">${escapeHtml(logo.sub)}</span>
         `;
     }
 
-    return `<div class="team-icon team-icon-fallback">${escapeHtml(getTeamSymbol(teamName))}</div>`;
+    return `
+        <span class="logo-fifa">${escapeHtml(logo.fifa)}</span>
+        <span class="logo-main">${escapeHtml(logo.main)}</span>
+        <span class="logo-sub">${escapeHtml(logo.sub)}</span>
+    `;
 }
 
-function getMatchdayEvents(events) {
-    return events
-        .filter((event) => event.strLeague)
-        .sort((first, second) => getEventDate(first).getTime() - getEventDate(second).getTime())
-        .slice(0, 4)
-        .map((event) => ({
-            league: event.strLeague,
-            homeTeam: event.strHomeTeam,
-            awayTeam: event.strAwayTeam,
-            dateEvent: event.dateEvent,
-            strTime: event.strTime,
-            statusLabel: getMatchdayLabel(event),
-            scoreLine: getScoreLine(event)
-        }));
+function renderTournamentHero(tournament) {
+    const hero = document.getElementById("tournamentHero");
+    const title = document.getElementById("tournamentTitle");
+    const date = document.getElementById("tournamentDate");
+    const cardGrid = document.getElementById("ticketActionGrid");
+
+    hero.classList.add("is-changing");
+
+    window.setTimeout(() => {
+        hero.style.setProperty("--hero-bg", tournament.heroBg);
+        hero.style.setProperty("--accent", tournament.accent);
+        title.textContent = tournament.title;
+        date.textContent = tournament.date;
+        cardGrid.className = tournament.cards.length === 1
+            ? "ticket-action-grid single-card"
+            : "ticket-action-grid";
+        cardGrid.innerHTML = tournament.cards.map((card) => renderTicketCard(card, tournament.accent)).join("");
+        hero.classList.remove("is-changing");
+    }, 120);
 }
 
-function renderMatchday(matches, container) {
-    container.innerHTML = matches.map((match) => `
-        <article class="matchday-card">
-          <span class="matchday-label ${matchdayClass(match.statusLabel)}">${escapeHtml(match.statusLabel)}</span>
-          <div class="team-subtitle">${escapeHtml(match.league)}</div>
-          <h3>${escapeHtml(match.homeTeam)} vs ${escapeHtml(match.awayTeam)}</h3>
-          <div class="matchday-score">${escapeHtml(match.scoreLine)}</div>
-          <div class="matchday-meta">${escapeHtml(formatDate(match.dateEvent))} • ${escapeHtml(formatTime(match.strTime))}</div>
+function renderTicketCard(card, accent) {
+    return `
+        <article class="ticket-action-card" style="--accent: ${accent}">
+          <div class="ticket-card-icon">${renderIcon(card.icon)}</div>
+          <div class="ticket-action-head">${escapeHtml(card.heading)}</div>
+          <div class="ticket-action-body">
+            <p>${escapeHtml(card.text)}</p>
+            <button type="button">${escapeHtml(card.button)}</button>
+          </div>
         </article>
-    `).join("");
+    `;
 }
 
-function getMatchdayLabel(event) {
-    if (event.strStatus && !["NS", "FT"].includes(event.strStatus)) {
-        return "LIVE";
+function renderIcon(icon) {
+    if (icon === "diamond") {
+        return `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 4h12l3 5-9 11L3 9z"></path>
+              <path d="M3 9h18"></path>
+              <path d="M9 4 7 9l5 11 5-11-2-5"></path>
+            </svg>
+        `;
     }
 
-    const eventDate = getEventDate(event);
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-
-    if (eventDate.toDateString() === today.toDateString()) {
-        return "TODAY";
+    if (icon === "info") {
+        return `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 10v7"></path>
+              <path d="M12 7h.01"></path>
+            </svg>
+        `;
     }
 
-    if (eventDate.toDateString() === tomorrow.toDateString()) {
-        return "TOMORROW";
-    }
-
-    return "UPCOMING";
+    return `
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9a3 3 0 0 0 0 6v4h16v-4a3 3 0 0 0 0-6V5H4z"></path>
+          <path d="M9 5v14"></path>
+          <path d="M15 5v14"></path>
+        </svg>
+    `;
 }
 
-function getScoreLine(event) {
-    if (event.intHomeScore !== null && event.intHomeScore !== undefined && event.intAwayScore !== null && event.intAwayScore !== undefined) {
-        return `${event.intHomeScore} - ${event.intAwayScore}`;
+function handleTournamentClick(event) {
+    const tab = event.target.closest(".tournament-tab");
+
+    if (!tab) {
+        return;
     }
 
-    return "vs";
-}
+    const selectedTournament = tournaments.find((tournament) => tournament.id === tab.dataset.tournamentId);
 
-function getEventDate(event) {
-    if (!event.dateEvent) {
-        return null;
+    if (!selectedTournament || selectedTournament.id === activeTournamentId) {
+        return;
     }
 
-    const timePart = event.strTime || "00:00:00";
-    const parsed = new Date(`${event.dateEvent}T${timePart}`);
-    return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    if (Number.isNaN(date.getTime())) {
-        return "Date to be confirmed";
-    }
-
-    return date.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-    });
-}
-
-function formatTime(timeString) {
-    if (!timeString) {
-        return "TBC";
-    }
-
-    const [hours, minutes] = timeString.split(":");
-    return `${hours}:${minutes}`;
-}
-
-function getTeamSymbol(teamName) {
-    const flags = {
-        Italy: "IT",
-        Norway: "NO",
-        Portugal: "PT",
-        Netherlands: "NL",
-        Spain: "ES",
-        Croatia: "HR",
-        France: "FR",
-        Denmark: "DK",
-        England: "EN",
-        Belgium: "BE",
-        Germany: "DE",
-        Poland: "PL"
-    };
-
-    if (flags[teamName]) {
-        return flags[teamName];
-    }
-
-    return teamName.split(" ").map((word) => word[0]).join("").slice(0, 2).toUpperCase();
-}
-
-function statusClass(status) {
-    if (status === "Tickets Available") return "available";
-    if (status === "Selling Fast") return "fast";
-    if (status === "Limited Availability") return "limited";
-    return "soon";
-}
-
-function matchdayClass(label) {
-    if (label === "LIVE") return "live";
-    if (label === "TODAY") return "today";
-    return "upcoming";
+    activeTournamentId = selectedTournament.id;
+    renderTournamentTabs();
+    renderTournamentHero(selectedTournament);
 }
 
 function escapeHtml(value) {
@@ -436,42 +245,4 @@ function escapeHtml(value) {
 }
 
 document.addEventListener("DOMContentLoaded", loadTicketsPage);
-
-document.addEventListener("click", (event) => {
-    const toggle = event.target.closest(".details-toggle");
-
-    if (!toggle) {
-        return;
-    }
-
-    const details = toggle.nextElementSibling;
-    if (!details) {
-        return;
-    }
-
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-
-    toggle.setAttribute("aria-expanded", String(!isOpen));
-    toggle.querySelector(".details-chevron").textContent = isOpen ? "▾" : "▴";
-
-    if (isOpen) {
-        details.style.maxHeight = `${details.scrollHeight}px`;
-        requestAnimationFrame(() => {
-            details.style.maxHeight = "0px";
-            details.classList.remove("open");
-        });
-        window.setTimeout(() => {
-            if (toggle.getAttribute("aria-expanded") === "false") {
-                details.hidden = true;
-            }
-        }, 260);
-        return;
-    }
-
-    details.hidden = false;
-    details.classList.add("open");
-    details.style.maxHeight = "0px";
-    requestAnimationFrame(() => {
-        details.style.maxHeight = `${details.scrollHeight}px`;
-    });
-});
+document.addEventListener("click", handleTournamentClick);
