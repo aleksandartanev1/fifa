@@ -273,13 +273,13 @@
                     return (
                         '<div class="match-row">' +
                         '<div class="match-team home">' + homeBadge + '<span>' + escapeHtml(m.home || m.strHomeTeam) + '</span></div>' +
-                        '<div class="match-time' + (live ? " live" : "") + '">' + (live ? "LIVE" : escapeHtml(m.time || "TBD")) + "</div>" +
+                        '<div class="match-time' + (live ? " live" : "") + '">' + (live ? t("liveUpper") : escapeHtml(m.time || "TBD")) + "</div>" +
                         '<div class="match-team away"><span>' + escapeHtml(m.away || m.strAwayTeam) + '</span>' + awayBadge + "</div>" +
                         "</div>"
                     );
                 })
                 .join("")
-            : '<div class="state-message">No fixtures for this day.</div>';
+            : '<div class="state-message">' + t("noFixturesDay") + "</div>";
 
         var tableRows = payload.table
             .slice(0, 2)
@@ -300,10 +300,10 @@
             matchesHtml +
             "</div>" +
             '<div class="league-table-card">' +
-            '<div class="league-card-header">' + badge + "<span>" + league.label + '</span><button type="button" class="show-table-link">Show table</button></div>' +
+            '<div class="league-card-header">' + badge + "<span>" + league.label + '</span><button type="button" class="show-table-link">' + t("showTable") + "</button></div>" +
             (payload.table.length
-                ? '<table class="mini-table"><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>Pts</th></tr></thead><tbody>' + tableRows + "</tbody></table>"
-                : '<div class="state-message">Table unavailable.</div>') +
+                ? '<table class="mini-table"><thead><tr><th>' + t("rankShort") + '</th><th>' + t("team") + '</th><th>P</th><th>W</th><th>Pts</th></tr></thead><tbody>' + tableRows + "</tbody></table>"
+                : '<div class="state-message">' + t("tableUnavailable") + "</div>") +
             "</div>" +
             "</div>" +
             (usedFallback ? '<div class="data-source-note is-fallback">Showing sample data for ' + league.label + " — live API data could not be reached.</div>" : "")
@@ -336,7 +336,7 @@
 
     function loadMatches() {
         var container = document.getElementById("matchesContainer");
-        container.innerHTML = '<div class="state-message">Loading fixtures…</div>';
+        container.innerHTML = '<div class="state-message">' + t("loadingFixtures") + "</div>";
 
         var dateStr = isoDate(state.selectedDate);
         var season = seasonFor(state.selectedDate);
@@ -407,7 +407,7 @@
                 })
                 .join("");
 
-            container.innerHTML = html || '<div class="state-message">No fixtures match your filters for this day.</div>';
+            container.innerHTML = html || '<div class="state-message">' + t("noFixtures") + "</div>";
 
             var liveCount = results.reduce(function (sum, r) {
                 return (
@@ -418,7 +418,7 @@
                 );
             }, 0);
             var liveLabel = document.getElementById("liveCountLabel");
-            if (liveLabel) liveLabel.textContent = "Live (" + liveCount + ")";
+            if (liveLabel) liveLabel.textContent = t("live") + " (" + liveCount + ")";
         });
     }
 
@@ -502,23 +502,11 @@
             });
         });
 
-        // Language dropdown (lanbar) — matches the pattern used on index.html
-        var langToggle = document.getElementById("languageToggle");
-        var langDropdown = document.getElementById("languageDropdown");
-        if (langToggle && langDropdown) {
-            langToggle.addEventListener("click", function (e) {
-                e.stopPropagation();
-                langDropdown.classList.toggle("open");
-            });
-            document.addEventListener("click", function () {
-                langDropdown.classList.remove("open");
-            });
-        }
     }
 
     function buildFilterPanel() {
         var filterPanel = document.getElementById("filterPanel");
-        var html = '<div class="dropdown-title">Leagues</div>';
+        var html = '<div class="dropdown-title">' + t("leagues") + "</div>";
         html += LEAGUES.map(function (l) {
             return (
                 '<label><input type="checkbox" value="' + l.id + '" checked style="width:auto;margin:0;"> ' + l.label + "</label>"
@@ -527,10 +515,20 @@
         filterPanel.innerHTML = html;
     }
 
+    function t(key) {
+        return window.FifaI18n ? window.FifaI18n.t(key) : key;
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         buildFilterPanel();
         buildDateStrip();
         setupControls();
+        loadMatches();
+    });
+
+    window.addEventListener("fifa-language-change", function () {
+        var title = document.querySelector("#filterPanel .dropdown-title");
+        if (title) title.textContent = t("leagues");
         loadMatches();
     });
 })();

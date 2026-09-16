@@ -17,9 +17,9 @@
       <li class="language-menu">
         <button id="languageToggle" class="language-toggle" type="button" data-i18n="language">Language</button>
         <div id="languageDropdown" class="language-dropdown">
-          <button type="button" class="language-option" data-language="en">English</button>
-          <button type="button" class="language-option" data-language="mk">Macedonian</button>
-          <button type="button" class="language-option" data-language="sr">Serbian</button>
+          <button type="button" class="language-option" data-language="en" data-i18n="langEnglish">English</button>
+          <button type="button" class="language-option" data-language="mk" data-i18n="langMacedonian">Македонски</button>
+          <button type="button" class="language-option" data-language="sr" data-i18n="langSerbian">Srpski</button>
         </div>
       </li>
     </ul>
@@ -39,8 +39,8 @@
 
   <main class="tickets-page page-fade-in">
     <section class="tickets-intro">
-      <h1>TICKETS & HOSPITALITY</h1>
-      <p>Welcome to the perfect place to get all the first-hand information you need about tickets and hospitality to the most thrilling FIFA tournaments.</p>
+      <h1 data-i18n="ticketsTitle">TICKETS & HOSPITALITY</h1>
+      <p data-i18n="ticketsIntro">Welcome to the perfect place to get all the first-hand information you need about tickets and hospitality to the most thrilling FIFA tournaments.</p>
     </section>
 
     <section class="tournament-selector-wrap" aria-label="Tournament selector">
@@ -58,40 +58,40 @@
     <section class="editorial-section">
       <div class="tickets-container">
         <div class="editorial-heading">
-          <h2>Other tournaments</h2>
+          <h2 data-i18n="otherTournaments">Other tournaments</h2>
           <div class="carousel-controls" aria-label="Other tournament controls">
-            <button type="button" aria-label="Previous tournament">&lsaquo;</button>
-            <button type="button" aria-label="Next tournament">&rsaquo;</button>
+            <button type="button" aria-label="Previous tournament" data-i18n-aria="previousTournament">&lsaquo;</button>
+            <button type="button" aria-label="Next tournament" data-i18n-aria="nextTournament">&rsaquo;</button>
           </div>
         </div>
         <div class="editorial-grid">
           <article class="editorial-card">
             <img src="../tournaments/womens-world-cup-2027-playoff.png" alt="FIFA Women's World Cup 2027 Play-Off Tournament">
-            <h3>Register your interest in tickets for FIFA Women's World Cup 2027&trade; Play-Off Tournament</h3>
+            <h3 data-ticket-i18n="otherPlayoffTitle">Register your interest in tickets for FIFA Women's World Cup 2027™ Play-Off Tournament</h3>
           </article>
           <article class="editorial-card">
             <img src="../tournaments/bidding.png" alt="FIFA World Cup 2030 ticket information">
-            <h3>Register your interest in tickets for FIFA World Cup 2030&trade;</h3>
+            <h3 data-ticket-i18n="otherWorldCup2030Title">Register your interest in tickets for FIFA World Cup 2030™</h3>
           </article>
           <article class="editorial-card">
             <img src="../tournaments/intercontinental-cup-2026.png" alt="FIFA ASEAN Cup 2026 ticket information">
-            <h3>Register your interest in tickets for FIFA ASEAN Cup 2026&trade;</h3>
+            <h3 data-ticket-i18n="otherAseanTitle">Register your interest in tickets for FIFA ASEAN Cup 2026™</h3>
           </article>
         </div>
 
-        <h2 class="past-heading">Past tournaments</h2>
+        <h2 class="past-heading" data-i18n="pastTournaments">Past tournaments</h2>
         <div class="editorial-grid past-grid">
           <article class="editorial-card">
             <img src="../pictures/spainwinners.avif" alt="FIFA World Cup 2026 tournament">
-            <h3>FIFA World Cup 2026&trade;</h3>
+            <h3 data-ticket-i18n="pastWorldCup2026Title">FIFA World Cup 2026™</h3>
           </article>
           <article class="editorial-card">
             <img src="../tournaments/womens-world-cup-2027.png" alt="FIFA Women's football tournament">
-            <h3>FIFA Women's Champions Cup 2026&trade;</h3>
+            <h3 data-ticket-i18n="pastChampionsCup2026Title">FIFA Women's Champions Cup 2026™</h3>
           </article>
           <article class="editorial-card">
             <img src="../pictures/awards.jpg" alt="FIFA tournament awards">
-            <h3>FIFA Club World Cup 2025&trade;</h3>
+            <h3 data-ticket-i18n="pastClubWorldCup2025Title">FIFA Club World Cup 2025™</h3>
           </article>
         </div>
       </div>
@@ -119,7 +119,7 @@
     </div>
 
     <div id="partners-section">
-      <h4>FIFA PARTNERS</h4>
+      <h4 data-i18n="partners">FIFA PARTNERS</h4>
       <ul id="partners">
         <li id="aramco"><a href="https://www.aramco.com" target="_blank"></a></li>
         <li id="adidas"><a href="https://www.adidas.com" target="_blank"></a></li>
@@ -134,8 +134,8 @@
 
     <div id="policy-bar">
       <div class="policy-links">
-        <a href="https://www.fifa.com/data-protection-portal/data-protection-policy">PRIVACY POLICY</a>
-        <a href="https://www.fifa.com/terms-of-service">TERMS OF SERVICE</a>
+        <a href="https://www.fifa.com/data-protection-portal/data-protection-policy" data-i18n="privacyPolicy">PRIVACY POLICY</a>
+        <a href="https://www.fifa.com/terms-of-service" data-i18n="termsService">TERMS OF SERVICE</a>
       </div>
       <div class="copyright">
         Copyright © 1994 - 2026 FIFA. All rights reserved.

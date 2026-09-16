@@ -21,9 +21,9 @@
       <li class="language-menu">
         <button id="languageToggle" class="language-toggle" type="button" data-i18n="language">Language</button>
         <div id="languageDropdown" class="language-dropdown">
-          <button type="button" class="language-option" data-language="en">English</button>
-          <button type="button" class="language-option" data-language="mk">Macedonian</button>
-          <button type="button" class="language-option" data-language="sr">Serbian</button>
+          <button type="button" class="language-option" data-language="en" data-i18n="langEnglish">English</button>
+          <button type="button" class="language-option" data-language="mk" data-i18n="langMacedonian">Македонски</button>
+          <button type="button" class="language-option" data-language="sr" data-i18n="langSerbian">Srpski</button>
         </div>
       </li>
     </ul>
@@ -56,17 +56,17 @@
 
     <div class="topbar-links">
 
-      <a href="#" class="active">
+      <a href="#" class="active" data-i18n="rankingTitle">
         FIFA Rankings
       </a>
 
       <span>›</span>
 
-      <a href="#">
+      <a href="#" data-i18n="worldRankingTitle">
         FIFA/Coca-Cola World Ranking
       </a>
 
-      <a href="#">
+      <a href="#" data-i18n="futsalRankingTitle">
         FIFA Futsal World Ranking
       </a>
 
@@ -80,7 +80,7 @@
   <header class="page-header">
 
     <h1>
-      FIFA Rankings
+      <span data-i18n="rankingTitle">FIFA Rankings</span>
     </h1>
 
   </header>
@@ -93,7 +93,7 @@
     <div class="title-row">
 
       <h2>
-        FIFA/Coca-Cola World Ranking
+        <span data-i18n="worldRankingTitle">FIFA/Coca-Cola World Ranking</span>
       </h2>
 
       <div class="fifa-logo">
@@ -118,20 +118,20 @@
       <section class="ranking-column">
 
         <h3>
-          Men
+          <span data-i18n="men">Men</span>
         </h3>
 
         <div class="status">
-          Match window closed
+          <span data-i18n="matchWindowClosed">Match window closed</span>
         </div>
 
 
         <div class="table-head">
 
-          <span>Rank</span>
-          <span>Team</span>
-          <span>Last Result</span>
-          <span>Points</span>
+          <span data-i18n="rank">Rank</span>
+          <span data-i18n="team">Team</span>
+          <span data-i18n="lastResult">Last Result</span>
+          <span data-i18n="points">Points</span>
 
         </div>
 
@@ -146,7 +146,7 @@
 
           <span>
             <span class="boldTxt">
-            Last official update:
+            <span data-i18n="lastOfficialUpdate">Last official update:</span>
             </span>
             <b id="menDate">
               20 July 2026
@@ -155,7 +155,7 @@
 
           <span>
             <span class="boldTxt">
-            Next official update:
+            <span data-i18n="nextOfficialUpdate">Next official update:</span>
             </span>
             <b>
               07 October 2026 (47 days)
@@ -170,7 +170,7 @@
           onclick="showFull('men')">
 
           <span>
-            Explore full Men's ranking
+            <span data-i18n="exploreMenRanking">Explore full Men's ranking</span>
           </span>
 
           <span class="arrow">
@@ -187,20 +187,20 @@
       <section class="ranking-column">
 
         <h3>
-          Women
+          <span data-i18n="women">Women</span>
         </h3>
 
         <div class="status">
-          Match window closed
+          <span data-i18n="matchWindowClosed">Match window closed</span>
         </div>
 
 
         <div class="table-head">
 
-          <span>Rank</span>
-          <span>Team</span>
-          <span>Last Result</span>
-          <span>Points</span>
+          <span data-i18n="rank">Rank</span>
+          <span data-i18n="team">Team</span>
+          <span data-i18n="lastResult">Last Result</span>
+          <span data-i18n="points">Points</span>
 
         </div>
 
@@ -215,7 +215,7 @@
 
           <span>
             <span class="boldTxt">
-            Last official update:
+            <span data-i18n="lastOfficialUpdate">Last official update:</span>
             </span>
             <b id="womenDate">
               16 June 2026
@@ -224,7 +224,7 @@
 
           <span>
             <span class="boldTxt">
-            Next official update:
+            <span data-i18n="nextOfficialUpdate">Next official update:</span>
             </span>
             <b>
               20 October 2026 (60 days)
@@ -239,7 +239,7 @@
           onclick="showFull('women')">
 
           <span>
-            Explore full Women's ranking
+            <span data-i18n="exploreWomenRanking">Explore full Women's ranking</span>
           </span>
 
           <span class="arrow">
@@ -258,7 +258,7 @@
   <!-- ================= FIFA FUTSAL RANKING ================= -->
 
   <h2 class="h2-txt">
-    Fifa Futsal Ranking
+    <span data-i18n="futsalRankingTitle">FIFA Futsal Ranking</span>
   </h2>
 
 
@@ -272,18 +272,18 @@
       <section class="ranking-column">
 
         <h3>
-          Men
+          <span data-i18n="men">Men</span>
         </h3>
 
         <div class="ranking-info">
 
           <span>
-            Last official update:
+            <span data-i18n="lastOfficialUpdate">Last official update:</span>
             <b>08 May 2026</b>
           </span>
 
           <span>
-            Next official update:
+            <span data-i18n="nextOfficialUpdate">Next official update:</span>
             <b>25 September 2026</b>
           </span>
 
@@ -292,9 +292,9 @@
 
         <div class="ranking-table-header">
 
-          <span>RK</span>
-          <span>Team</span>
-          <span>Total Points</span>
+          <span data-i18n="rankShort">RK</span>
+          <span data-i18n="team">Team</span>
+          <span data-i18n="totalPoints">Total Points</span>
           <span>+/-</span>
 
         </div>
@@ -316,18 +316,18 @@
       <section class="ranking-column">
 
         <h3>
-          Women
+          <span data-i18n="women">Women</span>
         </h3>
 
         <div class="ranking-info">
 
           <span>
-            Last official update:
+            <span data-i18n="lastOfficialUpdate">Last official update:</span>
             <b>08 May 2026</b>
           </span>
 
           <span>
-            Next official update:
+            <span data-i18n="nextOfficialUpdate">Next official update:</span>
             <b>25 September 2026</b>
           </span>
 
@@ -336,9 +336,9 @@
 
         <div class="ranking-table-header">
 
-          <span>RK</span>
-          <span>Team</span>
-          <span>Total Points</span>
+          <span data-i18n="rankShort">RK</span>
+          <span data-i18n="team">Team</span>
+          <span data-i18n="totalPoints">Total Points</span>
           <span>+/-</span>
 
         </div>
@@ -373,7 +373,7 @@
           onclick="showFull('men')">
 
           <span>
-            Explore full Men's ranking
+            <span data-i18n="exploreMenRanking">Explore full Men's ranking</span>
           </span>
 
           <span class="arrow">
@@ -401,7 +401,7 @@
           onclick="showFull('women')">
 
           <span>
-            Explore full Women's ranking
+            <span data-i18n="exploreWomenRanking">Explore full Women's ranking</span>
           </span>
 
           <span class="arrow">
@@ -431,7 +431,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            Men's Ranking
+            <span data-i18n="mensRanking">Men's Ranking</span>
           </div>
 
           <h3>
@@ -455,7 +455,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            Women's Football
+            <span data-i18n="womensFootball">Women's Football</span>
           </div>
 
           <h3>
@@ -479,7 +479,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            Men's Ranking
+            <span data-i18n="mensRanking">Men's Ranking</span>
           </div>
 
           <h3>
@@ -503,7 +503,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            Member Associations
+            <span data-i18n="memberAssociations">Member Associations</span>
           </div>
 
           <h3>
@@ -527,7 +527,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            Member Associations
+            <span data-i18n="memberAssociations">Member Associations</span>
           </div>
 
           <h3>
@@ -551,7 +551,7 @@
         <div class="news-content">
 
           <div class="news-category">
-            FIFA
+            <span data-i18n="fifaCategory">FIFA</span>
           </div>
 
           <h3>
@@ -578,7 +578,8 @@
     <button
       class="news-arrow prev"
       id="newsPrev"
-      aria-label="Previous news">
+      aria-label="Previous news"
+      data-i18n-aria="previousNews">
 
       ‹
 
@@ -588,7 +589,8 @@
     <button
       class="news-arrow next"
       id="newsNext"
-      aria-label="Next news">
+      aria-label="Next news"
+      data-i18n-aria="nextNews">
 
       ›
 
@@ -625,7 +627,7 @@
     </div>
 
     <div id="partners-section">
-      <h4>FIFA PARTNERS</h4>
+      <h4 data-i18n="partners">FIFA PARTNERS</h4>
       <ul id="partners">
         <li id="aramco"><a href="https://www.aramco.com" target="_blank"></a></li>
         <li id="adidas"><a href="https://www.adidas.com" target="_blank"></a></li>
@@ -640,8 +642,8 @@
 
     <div id="policy-bar">
       <div class="policy-links">
-        <a href="https://www.fifa.com/data-protection-portal/data-protection-policy">PRIVACY POLICY</a>
-        <a href="https://www.fifa.com/terms-of-service">TERMS OF SERVICE</a>
+        <a href="https://www.fifa.com/data-protection-portal/data-protection-policy" data-i18n="privacyPolicy">PRIVACY POLICY</a>
+        <a href="https://www.fifa.com/terms-of-service" data-i18n="termsService">TERMS OF SERVICE</a>
       </div>
       <div class="copyright">
         Copyright © 1994 - 2026 FIFA. All rights reserved.

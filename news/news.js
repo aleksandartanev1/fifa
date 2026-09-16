@@ -1,6 +1,8 @@
 const RSS_TO_JSON_URL = "https://api.rss2json.com/v1/api.json?rss_url=";
 const BBC_FOOTBALL_FEED = "https://feeds.bbci.co.uk/sport/football/rss.xml";
 const FALLBACK_IMG = "../awards.avif";
+let currentArticles = [];
+let showingFallbackStatus = false;
 
 const fallbackArticles = [
     {
@@ -49,18 +51,20 @@ async function loadLatestNews() {
     const statusEl = document.getElementById("newsStatus");
     const gridEl = document.getElementById("newsFeatureGrid");
 
-    statusEl.textContent = "Loading latest football headlines...";
+    statusEl.textContent = t("newsLoading");
     gridEl.style.display = "none";
 
     try {
         const articles = await fetchBbcFootballArticles();
         renderArticles(articles);
+        showingFallbackStatus = false;
         statusEl.style.display = "none";
         gridEl.style.display = "grid";
     } catch (error) {
         console.error("Could not load BBC Sport football headlines.", error);
         renderArticles(fallbackArticles);
-        statusEl.textContent = "Live football headlines are unavailable right now. Showing fallback FIFA-style articles instead.";
+        showingFallbackStatus = true;
+        statusEl.textContent = t("newsFallbackStatus");
         statusEl.style.display = "block";
         gridEl.style.display = "grid";
     }
@@ -151,6 +155,7 @@ function deduplicateArticles(articles) {
 }
 
 function renderArticles(articles) {
+    currentArticles = articles;
     const [featuredArticle, ...restArticles] = articles;
     const featureLink = document.getElementById("newsFeature");
     const featureImg = document.getElementById("featureImg");
@@ -197,20 +202,33 @@ function renderArticles(articles) {
 
 function formatDate(dateString) {
     if (!dateString) {
-        return "Latest update";
+        return t("latestUpdate");
     }
 
     const date = new Date(dateString);
 
     if (Number.isNaN(date.getTime())) {
-        return "Latest update";
+        return t("latestUpdate");
     }
 
-    return date.toLocaleDateString("en-GB", {
+    return date.toLocaleDateString(getDateLocale(), {
         day: "2-digit",
         month: "short",
         year: "numeric"
     });
+}
+
+function getDateLocale() {
+    const language = window.FifaI18n ? window.FifaI18n.getLanguage() : "en";
+    return {
+        en: "en-GB",
+        mk: "mk-MK",
+        sr: "sr-Latn-RS"
+    }[language] || "en-GB";
+}
+
+function t(key) {
+    return window.FifaI18n ? window.FifaI18n.t(key) : key;
 }
 
 function escapeHtml(text) {
@@ -220,3 +238,14 @@ function escapeHtml(text) {
 }
 
 document.addEventListener("DOMContentLoaded", loadLatestNews);
+
+window.addEventListener("fifa-language-change", function () {
+    if (currentArticles.length) {
+        renderArticles(currentArticles);
+    }
+
+    const statusEl = document.getElementById("newsStatus");
+    if (statusEl && showingFallbackStatus) {
+        statusEl.textContent = t("newsFallbackStatus");
+    }
+});

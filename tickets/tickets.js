@@ -13,21 +13,21 @@ const tournaments = [
         cards: [
             {
                 icon: "ticket",
-                heading: "Tickets",
-                text: "Experience the thrill of top women's football, don't miss out!",
-                button: "Register your interest"
+                headingKey: "ticketsCard",
+                textKey: "ticketsBrazilText",
+                buttonKey: "registerInterest"
             },
             {
                 icon: "diamond",
-                heading: "Hospitality",
-                text: "Register your interest in hospitality for the FIFA Women's World Cup Brazil 2027™",
-                button: "Register your interest"
+                headingKey: "hospitalityCard",
+                textKey: "hospitalityBrazilText",
+                buttonKey: "registerInterest"
             },
             {
                 icon: "info",
-                heading: "More information",
-                text: "Visit our FIFA Women's World Cup Brazil 2027™ Ticketing FAQ for more details.",
-                button: "View FAQ"
+                headingKey: "moreInfoCard",
+                textKey: "moreInfoBrazilText",
+                buttonKey: "viewFaq"
             }
         ]
     },
@@ -45,9 +45,9 @@ const tournaments = [
         cards: [
             {
                 icon: "ticket",
-                heading: "Tickets",
-                text: "Be there to witness the rise of the next generation of stars",
-                button: "Buy now"
+                headingKey: "ticketsCard",
+                textKey: "ticketsPolandText",
+                buttonKey: "buyNow"
             }
         ]
     },
@@ -65,9 +65,9 @@ const tournaments = [
         cards: [
             {
                 icon: "ticket",
-                heading: "Tickets",
-                text: "Witness the next generation turn their dreams into reality",
-                button: "Buy now"
+                headingKey: "ticketsCard",
+                textKey: "ticketsMoroccoText",
+                buttonKey: "buyNow"
             }
         ]
     },
@@ -85,9 +85,9 @@ const tournaments = [
         cards: [
             {
                 icon: "ticket",
-                heading: "Tickets",
-                text: "Get ready to book your seat for the tournament in Qatar",
-                button: "Register Now"
+                headingKey: "ticketsCard",
+                textKey: "ticketsQatarText",
+                buttonKey: "registerNow"
             }
         ]
     },
@@ -105,9 +105,9 @@ const tournaments = [
         cards: [
             {
                 icon: "ticket",
-                heading: "Tickets",
-                text: "Prepare to book your seat in Miami to attend the tournament's second edition",
-                button: "Register your interest"
+                headingKey: "ticketsCard",
+                textKey: "ticketsChampionsText",
+                buttonKey: "registerInterest"
             }
         ]
     }
@@ -118,6 +118,7 @@ let activeTournamentId = tournaments[0].id;
 function loadTicketsPage() {
     renderTournamentTabs();
     renderTournamentHero(tournaments[0]);
+    translateEditorialCards();
 }
 
 function renderTournamentTabs() {
@@ -178,10 +179,10 @@ function renderTicketCard(card, accent) {
     return `
         <article class="ticket-action-card" style="--accent: ${accent}">
           <div class="ticket-card-icon">${renderIcon(card.icon)}</div>
-          <div class="ticket-action-head">${escapeHtml(card.heading)}</div>
+          <div class="ticket-action-head">${escapeHtml(t(card.headingKey))}</div>
           <div class="ticket-action-body">
-            <p>${escapeHtml(card.text)}</p>
-            <button type="button">${escapeHtml(card.button)}</button>
+            <p>${escapeHtml(t(card.textKey))}</p>
+            <button type="button">${escapeHtml(t(card.buttonKey))}</button>
           </div>
         </article>
     `;
@@ -235,6 +236,16 @@ function handleTournamentClick(event) {
     renderTournamentHero(selectedTournament);
 }
 
+function translateEditorialCards() {
+    document.querySelectorAll("[data-ticket-i18n]").forEach((element) => {
+        element.textContent = t(element.dataset.ticketI18n);
+    });
+}
+
+function t(key) {
+    return window.FifaI18n ? window.FifaI18n.t(key) : key;
+}
+
 function escapeHtml(value) {
     return String(value || "")
         .replaceAll("&", "&amp;")
@@ -246,3 +257,9 @@ function escapeHtml(value) {
 
 document.addEventListener("DOMContentLoaded", loadTicketsPage);
 document.addEventListener("click", handleTournamentClick);
+window.addEventListener("fifa-language-change", () => {
+    const selectedTournament = tournaments.find((tournament) => tournament.id === activeTournamentId) || tournaments[0];
+    renderTournamentTabs();
+    renderTournamentHero(selectedTournament);
+    translateEditorialCards();
+});
